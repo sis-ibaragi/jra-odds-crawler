@@ -1,0 +1,6 @@
+/.gradle/
+/bin/
+/data/
+gradlew
+gradlew.bat
+/src/main/resources/database.properties
