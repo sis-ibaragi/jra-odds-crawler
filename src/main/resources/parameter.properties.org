@@ -1,4 +1,6 @@
-## KAISAI_DT (yyyy-MM-dd)
-kaisai.date=2018-12-15
-## ODDS_TIME_NO
+## 開催日 (yyyy-MM-dd)
+kaisai.date=2018-12-01
+## オッズ時間番号
 odds.time.no=1
+## 事前削除フラグ
+pre.delete=false
