@@ -3,4 +3,5 @@
 /data/
 gradlew
 gradlew.bat
+/src/main/resources/parameter.properties
 /src/main/resources/database.properties
