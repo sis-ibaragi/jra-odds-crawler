@@ -30,7 +30,7 @@ public class RaceSelectPage {
 	private KaisaiDto kaisaiDto;
 
 	/** . */
-	private String filterKaisaiDt;
+	private LocalDate filterKaisaiDt;
 
 	/** . */
 	private Map<String, RacePageCnameDto> racePageCnameMap;
@@ -46,8 +46,8 @@ public class RaceSelectPage {
 		// ヘッダー部の開催日、開催名を取得
 		String[] header = this.document.selectFirst("table#race_list div.main").text().trim().split("（.曜）");
 		// 開催日に指定ありの場合、指定の開催日以外はスクレイピングしない
-		if (this.filterKaisaiDt != null && !this.filterKaisaiDt.isEmpty()
-				&& LocalDate.parse(filterKaisaiDt).compareTo(ScrapingUtils.getKaisaiDt(header[0])) != 0) {
+		if (this.filterKaisaiDt != null
+				&& filterKaisaiDt.compareTo(ScrapingUtils.getKaisaiDt(header[0])) != 0) {
 			return this;
 		}
 		this.kaisaiDto = new KaisaiDto();

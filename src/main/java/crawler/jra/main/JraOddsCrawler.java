@@ -8,12 +8,15 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
 
 import org.jooq.DSLContext;
+import org.jooq.Record1;
+import org.jooq.Result;
 import org.jooq.SQLDialect;
 import org.jooq.conf.Settings;
 import org.jooq.impl.DSL;
@@ -30,6 +33,7 @@ import crawler.jra.page.RaceTnpkUmaPage;
 import crawler.jra.page.RaceUmrnNinPage;
 import crawler.jra.page.RaceUmrnUmaPage;
 import crawler.jra.page.TopPage;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -40,32 +44,67 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class JraOddsCrawler {
 
-	/** db.properties */
-	private Properties dbProperties;
+	/** databbase.properties */
+	private DatabaseProperties dbProperties;
 
 	/** parameter.properties */
-	private Properties parameterProperties;
+	private ParameterProperties parameterProperties;
+
+	/**
+	 * database.properties のデータ構造を表すクラスです。
+	 */
+	@Data
+	private static class DatabaseProperties {
+		private String database;
+		private String username;
+		private String password;
+
+		private DatabaseProperties(Properties properties) {
+			setDatabase(properties.getProperty("database"));
+			setUsername(properties.getProperty("username"));
+			setPassword(properties.getProperty("password"));
+		}
+	}
+
+	/**
+	 * parameter.properties のデータ構造を表すクラスです。
+	 */
+	@Data
+	private static class ParameterProperties {
+		private LocalDate kaisaiDate;
+		private int oddsTimeNo;
+		private boolean preDelete;
+
+		private ParameterProperties(Properties properties) {
+			setKaisaiDate(LocalDate.parse(properties.getProperty("kaisai.date")));
+			setOddsTimeNo(Integer.valueOf(properties.getProperty("odds.time.no")));
+			setPreDelete(Boolean.valueOf(properties.getProperty("pre.delete")));
+		}
+	}
 
 	/**
 	 * .
 	 */
 	public JraOddsCrawler() {
-		this.dbProperties = new Properties();
 		try {
-			this.dbProperties.load(this.getClass().getClassLoader().getResourceAsStream("database.properties"));
+			Properties properties = new Properties();
+			properties.load(this.getClass().getClassLoader().getResourceAsStream("database.properties"));
+			this.dbProperties = new DatabaseProperties(properties);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		this.parameterProperties = new Properties();
 		try {
-			this.parameterProperties.load(this.getClass().getClassLoader().getResourceAsStream("parameter.properties"));
+			Properties properties = new Properties();
+			properties.load(this.getClass().getClassLoader().getResourceAsStream("parameter.properties"));
+			this.parameterProperties = new ParameterProperties(properties);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
 	}
 
 	/**
-	 * @param args
+	 * このクラスのメインメソッドです。
+	 * @param args コマンドライン引数
 	 */
 	public static void main(String[] args) {
 
@@ -86,9 +125,9 @@ public class JraOddsCrawler {
 	private void execute() {
 
 		try (Connection conn = DriverManager.getConnection(
-				this.dbProperties.getProperty("database"),
-				this.dbProperties.getProperty("username"),
-				this.dbProperties.getProperty("password"))) {
+				this.dbProperties.getDatabase(),
+				this.dbProperties.getUsername(),
+				this.dbProperties.getPassword())) {
 			conn.setAutoCommit(false);
 
 			Settings settings = new Settings();
@@ -118,7 +157,7 @@ public class JraOddsCrawler {
 			// レース選択ページに遷移
 			RaceSelectPage raceSelectPage = kaisaiSelectPage.goRaceSelectPage(kaisaiName);
 			// 開催日を指定
-			raceSelectPage.setFilterKaisaiDt(this.parameterProperties.getProperty("kaisai.date"));
+			raceSelectPage.setFilterKaisaiDt(this.parameterProperties.getKaisaiDate());
 
 			// KAISAI テーブルへデータを登録する
 			saveKaisaiData(create, raceSelectPage.parse().getKaisaiDto());
@@ -161,17 +200,71 @@ public class JraOddsCrawler {
 	 * @param create DSLContext
 	 */
 	private void deleteOddsData(DSLContext create) {
-		// 当日の初回実行の場合のみデータを削除する
-		if (!parameterProperties.getProperty("odds.time.no").equals("1")) {
+		// 事前削除のフラグが指定された場合はデータを全削除する
+		if (this.parameterProperties.isPreDelete()) {
+			create.deleteFrom(RACE_ODDS_UMRN).execute();
+			create.deleteFrom(RACE_ODDS_FUKU).execute();
+			create.deleteFrom(RACE_ODDS_TAN).execute();
+			create.deleteFrom(RACE_ODDS).execute();
+			create.deleteFrom(RACE_UMA_LIST).execute();
+			create.deleteFrom(RACE).execute();
+			create.deleteFrom(KAISAI).execute();
 			return;
 		}
-		create.deleteFrom(RACE_ODDS_UMRN).execute();
-		create.deleteFrom(RACE_ODDS_FUKU).execute();
-		create.deleteFrom(RACE_ODDS_TAN).execute();
-		create.deleteFrom(RACE_ODDS).execute();
-		create.deleteFrom(RACE_UMA_LIST).execute();
-		create.deleteFrom(RACE).execute();
-		create.deleteFrom(KAISAI).execute();
+
+		// 当日の初回実行の場合は当日の KAISAI とその配下のテーブルを削除する
+		if (this.parameterProperties.getOddsTimeNo() == 1) {
+			Result<Record1<String>> result = create.select(KAISAI.KAISAI_CD).from(KAISAI)
+					.where(KAISAI.KAISAI_DT.eq(Date.valueOf(this.parameterProperties.kaisaiDate)))
+					.fetch();
+			result.forEach(r -> {
+				create.deleteFrom(RACE_ODDS_UMRN)
+						.where(RACE_ODDS_UMRN.KAISAI_CD.eq(r.getValue(RACE_ODDS_UMRN.KAISAI_CD)))
+						.execute();
+				create.deleteFrom(RACE_ODDS_FUKU)
+						.where(RACE_ODDS_FUKU.KAISAI_CD.eq(r.getValue(RACE_ODDS_FUKU.KAISAI_CD)))
+						.execute();
+				create.deleteFrom(RACE_ODDS_TAN)
+						.where(RACE_ODDS_TAN.KAISAI_CD.eq(r.getValue(RACE_ODDS_TAN.KAISAI_CD)))
+						.execute();
+				create.deleteFrom(RACE_ODDS)
+						.where(RACE_ODDS.KAISAI_CD.eq(r.getValue(RACE_ODDS.KAISAI_CD)))
+						.execute();
+				create.deleteFrom(RACE_UMA_LIST)
+						.where(RACE_UMA_LIST.KAISAI_CD.eq(r.getValue(KAISAI.KAISAI_CD)))
+						.execute();
+				create.deleteFrom(RACE)
+						.where(RACE.KAISAI_CD.eq(r.getValue(RACE.KAISAI_CD)))
+						.execute();
+				create.deleteFrom(KAISAI)
+						.where(KAISAI.KAISAI_CD.eq(r.getValue(KAISAI.KAISAI_CD)))
+						.execute();
+			});
+			return;
+		}
+
+		// それ以外の場合は ODDS_TIME_NO を条件に RACE_ODDS とその配下のテーブルを削除する
+		Result<Record1<String>> result = create.select(KAISAI.KAISAI_CD).from(KAISAI)
+				.where(KAISAI.KAISAI_DT.eq(Date.valueOf(this.parameterProperties.kaisaiDate)))
+				.fetch();
+		result.forEach(r -> {
+			create.deleteFrom(RACE_ODDS_UMRN)
+					.where(RACE_ODDS_UMRN.KAISAI_CD.eq(r.getValue(RACE_ODDS_UMRN.KAISAI_CD)))
+					.and(RACE_ODDS_UMRN.ODDS_TIME_NO.eq(UByte.valueOf(this.parameterProperties.oddsTimeNo)))
+					.execute();
+			create.deleteFrom(RACE_ODDS_FUKU)
+					.where(RACE_ODDS_FUKU.KAISAI_CD.eq(r.getValue(RACE_ODDS_FUKU.KAISAI_CD)))
+					.and(RACE_ODDS_FUKU.ODDS_TIME_NO.eq(UByte.valueOf(this.parameterProperties.oddsTimeNo)))
+					.execute();
+			create.deleteFrom(RACE_ODDS_TAN)
+					.where(RACE_ODDS_TAN.KAISAI_CD.eq(r.getValue(RACE_ODDS_TAN.KAISAI_CD)))
+					.and(RACE_ODDS_TAN.ODDS_TIME_NO.eq(UByte.valueOf(this.parameterProperties.oddsTimeNo)))
+					.execute();
+			create.deleteFrom(RACE_ODDS)
+					.where(RACE_ODDS.KAISAI_CD.eq(r.getValue(RACE_ODDS.KAISAI_CD)))
+					.and(RACE_ODDS.ODDS_TIME_NO.eq(UByte.valueOf(this.parameterProperties.oddsTimeNo)))
+					.execute();
+		});
 	}
 
 	/**
@@ -184,7 +277,7 @@ public class JraOddsCrawler {
 			return;
 		}
 		// 当日の初回実行の場合のみ開催情報を登録する
-		if (!this.parameterProperties.getProperty("odds.time.no").equals("1")) {
+		if (this.parameterProperties.getOddsTimeNo() != 1) {
 			return;
 		}
 		// KAISAI テーブルへデータを登録する
@@ -210,7 +303,7 @@ public class JraOddsCrawler {
 			List<RaceTnpkNinDto> raceTnpkNinList) {
 
 		// 当日の初回実行の場合のみレース情報を登録する
-		if (!this.parameterProperties.getProperty("odds.time.no").equals("1")) {
+		if (this.parameterProperties.getOddsTimeNo() != 1) {
 			return;
 		}
 
@@ -254,9 +347,6 @@ public class JraOddsCrawler {
 			RaceDto raceUmrnDto,
 			List<RaceUmrnNinDto> raceUmrnNinList) {
 
-		// ODDS_TIME_NO を取得
-		String oddsTimeNo = this.parameterProperties.getProperty("odds.time.no");
-
 		// RACE_ODDS テーブルへデータを登録する
 		create.insertInto(RACE_ODDS)
 				.columns(RACE_ODDS.KAISAI_CD,
@@ -266,7 +356,7 @@ public class JraOddsCrawler {
 						RACE_ODDS.UMRN_ODDS_TIME)
 				.values(raceTnpkDto.getKaisaiCd(),
 						UByte.valueOf(raceTnpkDto.getRaceNo()),
-						UByte.valueOf(oddsTimeNo),
+						UByte.valueOf(this.parameterProperties.getOddsTimeNo()),
 						Optional.ofNullable(raceTnpkDto.getOddsTm()).map(m -> Time.valueOf(m)).orElse(null),
 						Optional.ofNullable(raceUmrnDto.getOddsTm()).map(m -> Time.valueOf(m)).orElse(null))
 				.execute();
@@ -282,7 +372,7 @@ public class JraOddsCrawler {
 							RACE_ODDS_TAN.TAN_ODDS)
 					.values(raceTnpkDto.getKaisaiCd(),
 							UByte.valueOf(raceTnpkDto.getRaceNo()),
-							UByte.valueOf(oddsTimeNo),
+							UByte.valueOf(this.parameterProperties.getOddsTimeNo()),
 							UByte.valueOf(dto.getUmaNo()),
 							UByte.valueOf(dto.getNinkiNo()),
 							dto.getTanOdds())
@@ -301,7 +391,7 @@ public class JraOddsCrawler {
 							RACE_ODDS_FUKU.FUKU_ODDS_MAX)
 					.values(raceTnpkDto.getKaisaiCd(),
 							UByte.valueOf(raceTnpkDto.getRaceNo()),
-							UByte.valueOf(oddsTimeNo),
+							UByte.valueOf(this.parameterProperties.getOddsTimeNo()),
 							UByte.valueOf(dto.getUmaNo()),
 							UByte.valueOf(dto.getNinkiNo()),
 							dto.getFukuOddsMin(),
@@ -321,7 +411,7 @@ public class JraOddsCrawler {
 							RACE_ODDS_UMRN.UMRN_ODDS)
 					.values(raceUmrnDto.getKaisaiCd(),
 							UByte.valueOf(raceUmrnDto.getRaceNo()),
-							UByte.valueOf(oddsTimeNo),
+							UByte.valueOf(this.parameterProperties.getOddsTimeNo()),
 							UByte.valueOf(dto.getUmaNo1()),
 							UByte.valueOf(dto.getUmaNo2()),
 							UByte.valueOf(dto.getNinkiNo()),
