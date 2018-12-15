@@ -10,9 +10,11 @@ import java.sql.SQLException;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.jooq.DSLContext;
 import org.jooq.Record1;
@@ -362,61 +364,59 @@ public class JraOddsCrawler {
 				.execute();
 
 		// RACE_ODDS_TAN テーブルへデータを登録する
-		raceTnpkNinList.forEach(dto -> {
-			create.insertInto(RACE_ODDS_TAN)
-					.columns(RACE_ODDS_TAN.KAISAI_CD,
-							RACE_ODDS_TAN.RACE_NO,
-							RACE_ODDS_TAN.ODDS_TIME_NO,
-							RACE_ODDS_TAN.UMA_NO,
-							RACE_ODDS_TAN.NINKI_NO,
-							RACE_ODDS_TAN.TAN_ODDS)
-					.values(raceTnpkDto.getKaisaiCd(),
-							UByte.valueOf(raceTnpkDto.getRaceNo()),
-							UByte.valueOf(this.parameterProperties.getOddsTimeNo()),
-							UByte.valueOf(dto.getUmaNo()),
-							UByte.valueOf(dto.getNinkiNo()),
-							dto.getTanOdds())
-					.execute();
-		});
+		{
+			AtomicInteger sortNo = new AtomicInteger(0);
+			raceTnpkNinList.stream().forEach(dto -> {
+				create.insertInto(RACE_ODDS_TAN)
+						.set(RACE_ODDS_TAN.KAISAI_CD, raceTnpkDto.getKaisaiCd())
+						.set(RACE_ODDS_TAN.RACE_NO, UByte.valueOf(raceTnpkDto.getRaceNo()))
+						.set(RACE_ODDS_TAN.ODDS_TIME_NO, UByte.valueOf(this.parameterProperties.getOddsTimeNo()))
+						.set(RACE_ODDS_TAN.UMA_NO, UByte.valueOf(dto.getUmaNo()))
+						.set(RACE_ODDS_TAN.NINKI_NO, UByte.valueOf(dto.getNinkiNo()))
+						.set(RACE_ODDS_TAN.SORT_NO, UByte.valueOf(sortNo.incrementAndGet()))
+						.set(RACE_ODDS_TAN.TAN_ODDS, dto.getTanOdds())
+						.execute();
+			});
+		}
 
 		// RACE_ODDS_FUKU テーブルへデータを登録する
-		raceTnpkNinList.forEach(dto -> {
-			create.insertInto(RACE_ODDS_FUKU)
-					.columns(RACE_ODDS_FUKU.KAISAI_CD,
-							RACE_ODDS_FUKU.RACE_NO,
-							RACE_ODDS_FUKU.ODDS_TIME_NO,
-							RACE_ODDS_FUKU.UMA_NO,
-							RACE_ODDS_FUKU.NINKI_NO,
-							RACE_ODDS_FUKU.FUKU_ODDS_MIN,
-							RACE_ODDS_FUKU.FUKU_ODDS_MAX)
-					.values(raceTnpkDto.getKaisaiCd(),
-							UByte.valueOf(raceTnpkDto.getRaceNo()),
-							UByte.valueOf(this.parameterProperties.getOddsTimeNo()),
-							UByte.valueOf(dto.getUmaNo()),
-							UByte.valueOf(dto.getNinkiNo()),
-							dto.getFukuOddsMin(),
-							dto.getFukuOddsMax())
-					.execute();
-		});
+		{
+			AtomicInteger sortNo = new AtomicInteger(0);
+			raceTnpkNinList.stream()
+					.sorted(Comparator.comparing(RaceTnpkNinDto::getFukuOddsMax)
+							.thenComparing(RaceTnpkNinDto::getNinkiNo)
+							.thenComparing(RaceTnpkNinDto::getUmaNo))
+					.forEach(dto -> {
+						create.insertInto(RACE_ODDS_FUKU)
+								.set(RACE_ODDS_FUKU.KAISAI_CD, raceTnpkDto.getKaisaiCd())
+								.set(RACE_ODDS_FUKU.RACE_NO, UByte.valueOf(raceTnpkDto.getRaceNo()))
+								.set(RACE_ODDS_FUKU.ODDS_TIME_NO,
+										UByte.valueOf(this.parameterProperties.getOddsTimeNo()))
+								.set(RACE_ODDS_FUKU.UMA_NO, UByte.valueOf(dto.getUmaNo()))
+								.set(RACE_ODDS_FUKU.NINKI_NO, (UByte) null)
+								.set(RACE_ODDS_FUKU.SORT_NO, UByte.valueOf(sortNo.incrementAndGet()))
+								.set(RACE_ODDS_FUKU.FUKU_ODDS_MIN, dto.getFukuOddsMin())
+								.set(RACE_ODDS_FUKU.FUKU_ODDS_MAX, dto.getFukuOddsMax())
+								.execute();
+					});
+		}
 
 		// RACE_ODDS_UMRN テーブルへデータを登録する
-		raceUmrnNinList.forEach(dto -> {
-			create.insertInto(RACE_ODDS_UMRN)
-					.columns(RACE_ODDS_UMRN.KAISAI_CD,
-							RACE_ODDS_UMRN.RACE_NO,
-							RACE_ODDS_UMRN.ODDS_TIME_NO,
-							RACE_ODDS_UMRN.UMA_NO_1,
-							RACE_ODDS_UMRN.UMA_NO_2,
-							RACE_ODDS_UMRN.NINKI_NO,
-							RACE_ODDS_UMRN.UMRN_ODDS)
-					.values(raceUmrnDto.getKaisaiCd(),
-							UByte.valueOf(raceUmrnDto.getRaceNo()),
-							UByte.valueOf(this.parameterProperties.getOddsTimeNo()),
-							UByte.valueOf(dto.getUmaNo1()),
-							UByte.valueOf(dto.getUmaNo2()),
-							UByte.valueOf(dto.getNinkiNo()),
-							dto.getOdds())
-					.execute();
-		});
+		{
+			AtomicInteger sortNo = new AtomicInteger(0);
+			raceUmrnNinList.stream().forEach(dto -> {
+				create.insertInto(RACE_ODDS_UMRN)
+						.set(RACE_ODDS_UMRN.KAISAI_CD, raceUmrnDto.getKaisaiCd())
+						.set(RACE_ODDS_UMRN.RACE_NO, UByte.valueOf(raceUmrnDto.getRaceNo()))
+						.set(RACE_ODDS_UMRN.ODDS_TIME_NO, UByte.valueOf(this.parameterProperties.getOddsTimeNo()))
+						.set(RACE_ODDS_UMRN.UMA_NO_1, UByte.valueOf(dto.getUmaNo1()))
+						.set(RACE_ODDS_UMRN.UMA_NO_2, UByte.valueOf(dto.getUmaNo2()))
+						.set(RACE_ODDS_UMRN.NINKI_NO, UByte.valueOf(dto.getNinkiNo()))
+						.set(RACE_ODDS_UMRN.SORT_NO, UByte.valueOf(sortNo.incrementAndGet()))
+						.set(RACE_ODDS_UMRN.UMRN_ODDS, dto.getOdds())
+						.execute();
+			});
+
+		}
 	}
 }
