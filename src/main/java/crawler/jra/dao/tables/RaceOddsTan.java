@@ -43,7 +43,7 @@ import org.jooq.types.UByte;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RaceOddsTan extends TableImpl<RaceOddsTanRecord> {
 
-    private static final long serialVersionUID = 985488373;
+    private static final long serialVersionUID = -551173861;
 
     /**
      * The reference instance of <code>appdb01.race_odds_tan</code>
@@ -81,7 +81,12 @@ public class RaceOddsTan extends TableImpl<RaceOddsTanRecord> {
     /**
      * The column <code>appdb01.race_odds_tan.NINKI_NO</code>.
      */
-    public final TableField<RaceOddsTanRecord, UByte> NINKI_NO = createField("NINKI_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.nullable(false), this, "");
+    public final TableField<RaceOddsTanRecord, UByte> NINKI_NO = createField("NINKI_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.defaultValue(org.jooq.impl.DSL.field("NULL", org.jooq.impl.SQLDataType.TINYINTUNSIGNED)), this, "");
+
+    /**
+     * The column <code>appdb01.race_odds_tan.SORT_NO</code>.
+     */
+    public final TableField<RaceOddsTanRecord, UByte> SORT_NO = createField("SORT_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.defaultValue(org.jooq.impl.DSL.field("NULL", org.jooq.impl.SQLDataType.TINYINTUNSIGNED)), this, "");
 
     /**
      * The column <code>appdb01.race_odds_tan.TAN_ODDS</code>.

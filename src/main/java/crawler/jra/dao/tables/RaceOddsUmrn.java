@@ -43,7 +43,7 @@ import org.jooq.types.UByte;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RaceOddsUmrn extends TableImpl<RaceOddsUmrnRecord> {
 
-    private static final long serialVersionUID = 210041331;
+    private static final long serialVersionUID = 493559945;
 
     /**
      * The reference instance of <code>appdb01.race_odds_umrn</code>
@@ -86,12 +86,22 @@ public class RaceOddsUmrn extends TableImpl<RaceOddsUmrnRecord> {
     /**
      * The column <code>appdb01.race_odds_umrn.NINKI_NO</code>.
      */
-    public final TableField<RaceOddsUmrnRecord, UByte> NINKI_NO = createField("NINKI_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.nullable(false), this, "");
+    public final TableField<RaceOddsUmrnRecord, UByte> NINKI_NO = createField("NINKI_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.defaultValue(org.jooq.impl.DSL.field("NULL", org.jooq.impl.SQLDataType.TINYINTUNSIGNED)), this, "");
+
+    /**
+     * The column <code>appdb01.race_odds_umrn.SORT_NO</code>.
+     */
+    public final TableField<RaceOddsUmrnRecord, UByte> SORT_NO = createField("SORT_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.defaultValue(org.jooq.impl.DSL.field("NULL", org.jooq.impl.SQLDataType.TINYINTUNSIGNED)), this, "");
 
     /**
      * The column <code>appdb01.race_odds_umrn.UMRN_ODDS</code>.
      */
     public final TableField<RaceOddsUmrnRecord, BigDecimal> UMRN_ODDS = createField("UMRN_ODDS", org.jooq.impl.SQLDataType.DECIMAL(6, 1).defaultValue(org.jooq.impl.DSL.field("NULL", org.jooq.impl.SQLDataType.DECIMAL)), this, "");
+
+    /**
+     * The column <code>appdb01.race_odds_umrn.DIFF_RT</code>.
+     */
+    public final TableField<RaceOddsUmrnRecord, BigDecimal> DIFF_RT = createField("DIFF_RT", org.jooq.impl.SQLDataType.DECIMAL(4, 2).defaultValue(org.jooq.impl.DSL.field("NULL", org.jooq.impl.SQLDataType.DECIMAL)), this, "");
 
     /**
      * The column <code>appdb01.race_odds_umrn.INSERT_DTTM</code>.
