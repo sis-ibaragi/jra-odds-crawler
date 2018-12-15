@@ -282,13 +282,12 @@ public class JraOddsCrawler {
 		if (this.parameterProperties.getOddsTimeNo() != 1) {
 			return;
 		}
+
 		// KAISAI テーブルへデータを登録する
 		create.insertInto(KAISAI)
-				.columns(KAISAI.KAISAI_CD,
-						KAISAI.KAISAI_NM,
-						KAISAI.KAISAI_DT)
-				.values(kaisaiDto.getKaisaiCd(),
-						kaisaiDto.getKaisaiNm(),
+				.set(KAISAI.KAISAI_CD, kaisaiDto.getKaisaiCd())
+				.set(KAISAI.KAISAI_NM, kaisaiDto.getKaisaiNm())
+				.set(KAISAI.KAISAI_DT,
 						Optional.ofNullable(kaisaiDto.getKaisaiDt()).map(m -> Date.valueOf(m)).orElse(null))
 				.execute();
 	}
@@ -311,25 +310,19 @@ public class JraOddsCrawler {
 
 		// RACE へデータを登録する
 		create.insertInto(RACE)
-				.columns(RACE.KAISAI_CD, RACE.RACE_NO)
-				.values(raceTnpkDto.getKaisaiCd(), UByte.valueOf(raceTnpkDto.getRaceNo()))
+				.set(RACE.KAISAI_CD, raceTnpkDto.getKaisaiCd())
+				.set(RACE.RACE_NO, UByte.valueOf(raceTnpkDto.getRaceNo()))
 				.execute();
 
 		// RACE_UMA_LIST へデータを登録する
 		raceTnpkNinList.forEach(dto -> {
 			create.insertInto(RACE_UMA_LIST)
-					.columns(RACE_UMA_LIST.KAISAI_CD,
-							RACE_UMA_LIST.RACE_NO,
-							RACE_UMA_LIST.UMA_NO,
-							RACE_UMA_LIST.WAKU_NO,
-							RACE_UMA_LIST.UMA_NM,
-							RACE_UMA_LIST.JOCKEY_NM)
-					.values(raceTnpkDto.getKaisaiCd(),
-							UByte.valueOf(raceTnpkDto.getRaceNo()),
-							UByte.valueOf(dto.getUmaNo()),
-							UByte.valueOf(dto.getWakuNo()),
-							dto.getUmaNm(),
-							dto.getJockeyNm())
+					.set(RACE_UMA_LIST.KAISAI_CD, raceTnpkDto.getKaisaiCd())
+					.set(RACE_UMA_LIST.RACE_NO, UByte.valueOf(raceTnpkDto.getRaceNo()))
+					.set(RACE_UMA_LIST.UMA_NO, UByte.valueOf(dto.getUmaNo()))
+					.set(RACE_UMA_LIST.WAKU_NO, UByte.valueOf(dto.getWakuNo()))
+					.set(RACE_UMA_LIST.UMA_NM, dto.getUmaNm())
+					.set(RACE_UMA_LIST.JOCKEY_NM, dto.getJockeyNm())
 					.execute();
 		});
 	}
@@ -351,15 +344,12 @@ public class JraOddsCrawler {
 
 		// RACE_ODDS テーブルへデータを登録する
 		create.insertInto(RACE_ODDS)
-				.columns(RACE_ODDS.KAISAI_CD,
-						RACE_ODDS.RACE_NO,
-						RACE_ODDS.ODDS_TIME_NO,
-						RACE_ODDS.TNPK_ODDS_TIME,
-						RACE_ODDS.UMRN_ODDS_TIME)
-				.values(raceTnpkDto.getKaisaiCd(),
-						UByte.valueOf(raceTnpkDto.getRaceNo()),
-						UByte.valueOf(this.parameterProperties.getOddsTimeNo()),
-						Optional.ofNullable(raceTnpkDto.getOddsTm()).map(m -> Time.valueOf(m)).orElse(null),
+				.set(RACE_ODDS.KAISAI_CD, raceTnpkDto.getKaisaiCd())
+				.set(RACE_ODDS.RACE_NO, UByte.valueOf(raceTnpkDto.getRaceNo()))
+				.set(RACE_ODDS.ODDS_TIME_NO, UByte.valueOf(this.parameterProperties.getOddsTimeNo()))
+				.set(RACE_ODDS.TNPK_ODDS_TIME,
+						Optional.ofNullable(raceTnpkDto.getOddsTm()).map(m -> Time.valueOf(m)).orElse(null))
+				.set(RACE_ODDS.UMRN_ODDS_TIME,
 						Optional.ofNullable(raceUmrnDto.getOddsTm()).map(m -> Time.valueOf(m)).orElse(null))
 				.execute();
 
