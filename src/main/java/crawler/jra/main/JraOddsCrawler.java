@@ -373,7 +373,7 @@ public class JraOddsCrawler {
 		{
 			AtomicInteger sortNo = new AtomicInteger(0);
 			raceTnpkNinList.stream()
-					.sorted(Comparator.comparing(RaceTnpkNinDto::getFukuOddsMax)
+					.sorted(Comparator.comparing(RaceTnpkNinDto::getFukuOddsMax4Sort)
 							.thenComparing(RaceTnpkNinDto::getNinkiNo)
 							.thenComparing(RaceTnpkNinDto::getUmaNo))
 					.forEach(dto -> {
