@@ -4,6 +4,7 @@
 package crawler.jra.dto;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 
 import lombok.Data;
 
@@ -48,6 +49,10 @@ public class RaceTnpkNinDto {
 
 	public BigDecimal getFukuOddsMax() {
 		return getDecimalOdds(this.fukuOddsMaxStr);
+	}
+
+	public BigDecimal getFukuOddsMax4Sort() {
+		return Optional.ofNullable(getDecimalOdds(this.fukuOddsMaxStr)).orElse(BigDecimal.valueOf(9999L));
 	}
 
 	private static BigDecimal getDecimalOdds(String oddsStr) {
