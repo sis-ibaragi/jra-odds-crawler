@@ -1,7 +1,8 @@
 /.gradle/
 /bin/
+/build/
 /data/
 gradlew
 gradlew.bat
-/src/main/resources/parameter.properties
-/src/main/resources/database.properties
+/conf/*.properties
+/src/main/resources/*.properties
