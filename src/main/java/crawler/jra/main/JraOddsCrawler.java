@@ -78,9 +78,15 @@ public class JraOddsCrawler {
 		private boolean preDelete;
 
 		private ParameterProperties(Properties properties) {
-			setKaisaiDate(LocalDate.parse(properties.getProperty("kaisai.date")));
-			setOddsTimeNo(Integer.valueOf(properties.getProperty("odds.time.no")));
-			setPreDelete(Boolean.valueOf(properties.getProperty("pre.delete")));
+			setKaisaiDate(LocalDate.parse(
+					Optional.ofNullable(System.getProperty("kaisai.date"))
+							.orElse(properties.getProperty("kaisai.date"))));
+			setOddsTimeNo(Integer.valueOf(
+					Optional.ofNullable(System.getProperty("odds.time.no"))
+							.orElse(properties.getProperty("odds.time.no"))));
+			setPreDelete(Boolean.valueOf(
+					Optional.ofNullable(System.getProperty("pre.delete"))
+							.orElse(properties.getProperty("pre.delete"))));
 		}
 	}
 
@@ -93,14 +99,14 @@ public class JraOddsCrawler {
 			properties.load(this.getClass().getClassLoader().getResourceAsStream("database.properties"));
 			this.dbProperties = new DatabaseProperties(properties);
 		} catch (IOException e) {
-			throw new RuntimeException(e);
+			log.error("プロパティファイルの読み込み時にエラーが発生しました。", e);
 		}
 		try {
 			Properties properties = new Properties();
 			properties.load(this.getClass().getClassLoader().getResourceAsStream("parameter.properties"));
 			this.parameterProperties = new ParameterProperties(properties);
 		} catch (IOException e) {
-			throw new RuntimeException(e);
+			log.error("プロパティファイルの読み込み時にエラーが発生しました。", e);
 		}
 	}
 
@@ -215,7 +221,7 @@ public class JraOddsCrawler {
 		}
 
 		// 当日の初回実行の場合は当日の KAISAI とその配下のテーブルを削除する
-		if (this.parameterProperties.getOddsTimeNo() == 1) {
+		if (this.parameterProperties.getOddsTimeNo() == 0) {
 			Result<Record1<String>> result = create.select(KAISAI.KAISAI_CD).from(KAISAI)
 					.where(KAISAI.KAISAI_DT.eq(Date.valueOf(this.parameterProperties.kaisaiDate)))
 					.fetch();
@@ -279,7 +285,7 @@ public class JraOddsCrawler {
 			return;
 		}
 		// 当日の初回実行の場合のみ開催情報を登録する
-		if (this.parameterProperties.getOddsTimeNo() != 1) {
+		if (this.parameterProperties.getOddsTimeNo() != 0) {
 			return;
 		}
 
@@ -304,7 +310,7 @@ public class JraOddsCrawler {
 			List<RaceTnpkNinDto> raceTnpkNinList) {
 
 		// 当日の初回実行の場合のみレース情報を登録する
-		if (this.parameterProperties.getOddsTimeNo() != 1) {
+		if (this.parameterProperties.getOddsTimeNo() != 0) {
 			return;
 		}
 
