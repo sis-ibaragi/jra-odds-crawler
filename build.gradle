@@ -6,8 +6,21 @@
  * user guide available at https://docs.gradle.org/3.5/userguide/java_library_plugin.html
  */
 
-// Apply the java-library plugin to add support for Java Library
-apply plugin: 'java-library'
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:4.0.4'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+version '1.0.0'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -15,6 +28,10 @@ repositories {
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
 }
+
+def defaultEncoding = 'UTF-8'
+tasks.withType(AbstractCompile).each { it.options.encoding = defaultEncoding }
+tasks.withType(GroovyCompile).each { it.groovyOptions.encoding = defaultEncoding }
 
 dependencies {
 	// https://mvnrepository.com/artifact/org.jsoup/jsoup
@@ -37,4 +54,12 @@ dependencies {
 
 	// https://mvnrepository.com/artifact/org.projectlombok/lombok
 	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.4'
+}
+
+jar {
+    baseName = 'jra-odds-crawler'
+    manifest {
+        attributes 'Main-Class' : 'crawler.jra.main.JraOddsCrawler'
+        attributes 'Class-Path' : '../conf/'
+    }
 }
