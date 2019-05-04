@@ -2,6 +2,7 @@
 /bin/
 /build/
 /data/
+/log/
 gradlew
 gradlew.bat
 /conf/*.properties

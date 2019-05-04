@@ -48,7 +48,7 @@ IF NOT EXIST %LOG_DIR% (
 )
 
 REM ツールを実行
-java %JVM_ARG% -Dtool.root.dir=%TOOL_HOME% -Dlog.dir=%LOG_DIR% -Dkaisai.date=%KAISAI_DT% -Dodds.time.no=%ODDS_TIME_NO% -jar %LIB_DIR%\%JAR_FILE%
+java %JVM_ARG% -Dtool.root.dir=%TOOL_HOME% -Dlog.dir=%LOG_DIR:\=/% -Dkaisai.date=%KAISAI_DT% -Dodds.time.no=%ODDS_TIME_NO% -jar %LIB_DIR%\%JAR_FILE%
 rem PAUSE
 
 REM メイン処理終了

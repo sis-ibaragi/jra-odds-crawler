@@ -40,6 +40,9 @@ dependencies {
 	// https://mvnrepository.com/artifact/edu.uci.ics/crawler4j
 	compile group: 'edu.uci.ics', name: 'crawler4j', version: '4.4.0'
 
+	// https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+	compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+
 	// https://mvnrepository.com/artifact/org.jooq/jooq
 	compile group: 'org.jooq', name: 'jooq', version: '3.11.7'
 
