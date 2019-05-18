@@ -20,7 +20,7 @@ public class ScrapingUtils {
 	private static Pattern doActionPtn = Pattern.compile("[a-z\\s]*doAction\\('.+',\\s*'(.+)'");
 
 	/** . */
-	private static Pattern kaisaiNmPtn = Pattern.compile("(\\d+)回(.+)(\\d+)日");
+	private static Pattern kaisaiNmPtn = Pattern.compile("(\\d+)回(\\D+)(\\d+)日");
 
 	/**
 	 * .
