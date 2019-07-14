@@ -31,115 +31,115 @@ import org.jooq.types.UByte;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RaceUmaListRecord extends UpdatableRecordImpl<RaceUmaListRecord> implements Record8<String, UByte, UByte, UByte, String, String, Timestamp, Timestamp> {
 
-    private static final long serialVersionUID = 1099067061;
+    private static final long serialVersionUID = -801285323;
 
     /**
-     * Setter for <code>appdb01.race_uma_list.KAISAI_CD</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.KAISAI_CD</code>.
      */
     public void setKaisaiCd(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_uma_list.KAISAI_CD</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.KAISAI_CD</code>.
      */
     public String getKaisaiCd() {
         return (String) get(0);
     }
 
     /**
-     * Setter for <code>appdb01.race_uma_list.RACE_NO</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.RACE_NO</code>.
      */
     public void setRaceNo(UByte value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_uma_list.RACE_NO</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.RACE_NO</code>.
      */
     public UByte getRaceNo() {
         return (UByte) get(1);
     }
 
     /**
-     * Setter for <code>appdb01.race_uma_list.UMA_NO</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.UMA_NO</code>.
      */
     public void setUmaNo(UByte value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_uma_list.UMA_NO</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.UMA_NO</code>.
      */
     public UByte getUmaNo() {
         return (UByte) get(2);
     }
 
     /**
-     * Setter for <code>appdb01.race_uma_list.WAKU_NO</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.WAKU_NO</code>.
      */
     public void setWakuNo(UByte value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_uma_list.WAKU_NO</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.WAKU_NO</code>.
      */
     public UByte getWakuNo() {
         return (UByte) get(3);
     }
 
     /**
-     * Setter for <code>appdb01.race_uma_list.UMA_NM</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.UMA_NM</code>.
      */
     public void setUmaNm(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_uma_list.UMA_NM</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.UMA_NM</code>.
      */
     public String getUmaNm() {
         return (String) get(4);
     }
 
     /**
-     * Setter for <code>appdb01.race_uma_list.JOCKEY_NM</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.JOCKEY_NM</code>.
      */
     public void setJockeyNm(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_uma_list.JOCKEY_NM</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.JOCKEY_NM</code>.
      */
     public String getJockeyNm() {
         return (String) get(5);
     }
 
     /**
-     * Setter for <code>appdb01.race_uma_list.INSERT_DTTM</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.INSERT_DTTM</code>.
      */
     public void setInsertDttm(Timestamp value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_uma_list.INSERT_DTTM</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.INSERT_DTTM</code>.
      */
     public Timestamp getInsertDttm() {
         return (Timestamp) get(6);
     }
 
     /**
-     * Setter for <code>appdb01.race_uma_list.UPDATE_DTTM</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.UPDATE_DTTM</code>.
      */
     public void setUpdateDttm(Timestamp value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_uma_list.UPDATE_DTTM</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.UPDATE_DTTM</code>.
      */
     public Timestamp getUpdateDttm() {
         return (Timestamp) get(7);

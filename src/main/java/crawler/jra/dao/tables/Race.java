@@ -4,7 +4,7 @@
 package crawler.jra.dao.tables;
 
 
-import crawler.jra.dao.Appdb01;
+import crawler.jra.dao.Ihq2xbiptmm0mjtp;
 import crawler.jra.dao.Indexes;
 import crawler.jra.dao.Keys;
 import crawler.jra.dao.tables.records.RaceRecord;
@@ -42,10 +42,10 @@ import org.jooq.types.UByte;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Race extends TableImpl<RaceRecord> {
 
-    private static final long serialVersionUID = 393164593;
+    private static final long serialVersionUID = -1724369067;
 
     /**
-     * The reference instance of <code>appdb01.race</code>
+     * The reference instance of <code>ihq2xbiptmm0mjtp.RACE</code>
      */
     public static final Race RACE = new Race();
 
@@ -58,41 +58,41 @@ public class Race extends TableImpl<RaceRecord> {
     }
 
     /**
-     * The column <code>appdb01.race.KAISAI_CD</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE.KAISAI_CD</code>.
      */
     public final TableField<RaceRecord, String> KAISAI_CD = createField("KAISAI_CD", org.jooq.impl.SQLDataType.CHAR(10).nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.race.RACE_NO</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE.RACE_NO</code>.
      */
     public final TableField<RaceRecord, UByte> RACE_NO = createField("RACE_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.race.INSERT_DTTM</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE.INSERT_DTTM</code>.
      */
-    public final TableField<RaceRecord, Timestamp> INSERT_DTTM = createField("INSERT_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("current_timestamp()", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
+    public final TableField<RaceRecord, Timestamp> INSERT_DTTM = createField("INSERT_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
 
     /**
-     * The column <code>appdb01.race.UPDATE_DTTM</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE.UPDATE_DTTM</code>.
      */
-    public final TableField<RaceRecord, Timestamp> UPDATE_DTTM = createField("UPDATE_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("current_timestamp()", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
+    public final TableField<RaceRecord, Timestamp> UPDATE_DTTM = createField("UPDATE_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
 
     /**
-     * Create a <code>appdb01.race</code> table reference
+     * Create a <code>ihq2xbiptmm0mjtp.RACE</code> table reference
      */
     public Race() {
-        this(DSL.name("race"), null);
+        this(DSL.name("RACE"), null);
     }
 
     /**
-     * Create an aliased <code>appdb01.race</code> table reference
+     * Create an aliased <code>ihq2xbiptmm0mjtp.RACE</code> table reference
      */
     public Race(String alias) {
         this(DSL.name(alias), RACE);
     }
 
     /**
-     * Create an aliased <code>appdb01.race</code> table reference
+     * Create an aliased <code>ihq2xbiptmm0mjtp.RACE</code> table reference
      */
     public Race(Name alias) {
         this(alias, RACE);
@@ -115,7 +115,7 @@ public class Race extends TableImpl<RaceRecord> {
      */
     @Override
     public Schema getSchema() {
-        return Appdb01.APPDB01;
+        return Ihq2xbiptmm0mjtp.IHQ2XBIPTMM0MJTP;
     }
 
     /**
