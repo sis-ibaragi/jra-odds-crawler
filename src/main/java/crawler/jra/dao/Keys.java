@@ -11,6 +11,7 @@ import crawler.jra.dao.tables.RaceOddsFuku;
 import crawler.jra.dao.tables.RaceOddsTan;
 import crawler.jra.dao.tables.RaceOddsUmrn;
 import crawler.jra.dao.tables.RaceUmaList;
+import crawler.jra.dao.tables.RaceUmaMark;
 import crawler.jra.dao.tables.records.KaisaiRecord;
 import crawler.jra.dao.tables.records.RaceOddsFukuRecord;
 import crawler.jra.dao.tables.records.RaceOddsRecord;
@@ -18,6 +19,7 @@ import crawler.jra.dao.tables.records.RaceOddsTanRecord;
 import crawler.jra.dao.tables.records.RaceOddsUmrnRecord;
 import crawler.jra.dao.tables.records.RaceRecord;
 import crawler.jra.dao.tables.records.RaceUmaListRecord;
+import crawler.jra.dao.tables.records.RaceUmaMarkRecord;
 
 import javax.annotation.Generated;
 
@@ -28,7 +30,7 @@ import org.jooq.impl.Internal;
 
 /**
  * A class modelling foreign key relationships and constraints of tables of 
- * the <code>appdb01</code> schema.
+ * the <code>ihq2xbiptmm0mjtp</code> schema.
  */
 @Generated(
     value = {
@@ -56,6 +58,7 @@ public class Keys {
     public static final UniqueKey<RaceOddsTanRecord> KEY_RACE_ODDS_TAN_PRIMARY = UniqueKeys0.KEY_RACE_ODDS_TAN_PRIMARY;
     public static final UniqueKey<RaceOddsUmrnRecord> KEY_RACE_ODDS_UMRN_PRIMARY = UniqueKeys0.KEY_RACE_ODDS_UMRN_PRIMARY;
     public static final UniqueKey<RaceUmaListRecord> KEY_RACE_UMA_LIST_PRIMARY = UniqueKeys0.KEY_RACE_UMA_LIST_PRIMARY;
+    public static final UniqueKey<RaceUmaMarkRecord> KEY_RACE_UMA_MARK_PRIMARY = UniqueKeys0.KEY_RACE_UMA_MARK_PRIMARY;
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
@@ -67,27 +70,30 @@ public class Keys {
     public static final ForeignKey<RaceOddsTanRecord, RaceOddsRecord> RACE_ODDS_TAN_IBFK_1 = ForeignKeys0.RACE_ODDS_TAN_IBFK_1;
     public static final ForeignKey<RaceOddsUmrnRecord, RaceOddsRecord> RACE_ODDS_UMRN_IBFK_1 = ForeignKeys0.RACE_ODDS_UMRN_IBFK_1;
     public static final ForeignKey<RaceUmaListRecord, RaceRecord> RACE_UMA_LIST_IBFK_1 = ForeignKeys0.RACE_UMA_LIST_IBFK_1;
+    public static final ForeignKey<RaceUmaMarkRecord, RaceUmaListRecord> RACE_UMA_MARK_IBFK_1 = ForeignKeys0.RACE_UMA_MARK_IBFK_1;
 
     // -------------------------------------------------------------------------
     // [#1459] distribute members to avoid static initialisers > 64kb
     // -------------------------------------------------------------------------
 
     private static class UniqueKeys0 {
-        public static final UniqueKey<KaisaiRecord> KEY_KAISAI_PRIMARY = Internal.createUniqueKey(Kaisai.KAISAI, "KEY_kaisai_PRIMARY", Kaisai.KAISAI.KAISAI_CD);
-        public static final UniqueKey<RaceRecord> KEY_RACE_PRIMARY = Internal.createUniqueKey(Race.RACE, "KEY_race_PRIMARY", Race.RACE.KAISAI_CD, Race.RACE.RACE_NO);
-        public static final UniqueKey<RaceOddsRecord> KEY_RACE_ODDS_PRIMARY = Internal.createUniqueKey(RaceOdds.RACE_ODDS, "KEY_race_odds_PRIMARY", RaceOdds.RACE_ODDS.KAISAI_CD, RaceOdds.RACE_ODDS.RACE_NO, RaceOdds.RACE_ODDS.ODDS_TIME_NO);
-        public static final UniqueKey<RaceOddsFukuRecord> KEY_RACE_ODDS_FUKU_PRIMARY = Internal.createUniqueKey(RaceOddsFuku.RACE_ODDS_FUKU, "KEY_race_odds_fuku_PRIMARY", RaceOddsFuku.RACE_ODDS_FUKU.KAISAI_CD, RaceOddsFuku.RACE_ODDS_FUKU.RACE_NO, RaceOddsFuku.RACE_ODDS_FUKU.ODDS_TIME_NO, RaceOddsFuku.RACE_ODDS_FUKU.UMA_NO);
-        public static final UniqueKey<RaceOddsTanRecord> KEY_RACE_ODDS_TAN_PRIMARY = Internal.createUniqueKey(RaceOddsTan.RACE_ODDS_TAN, "KEY_race_odds_tan_PRIMARY", RaceOddsTan.RACE_ODDS_TAN.KAISAI_CD, RaceOddsTan.RACE_ODDS_TAN.RACE_NO, RaceOddsTan.RACE_ODDS_TAN.ODDS_TIME_NO, RaceOddsTan.RACE_ODDS_TAN.UMA_NO);
-        public static final UniqueKey<RaceOddsUmrnRecord> KEY_RACE_ODDS_UMRN_PRIMARY = Internal.createUniqueKey(RaceOddsUmrn.RACE_ODDS_UMRN, "KEY_race_odds_umrn_PRIMARY", RaceOddsUmrn.RACE_ODDS_UMRN.KAISAI_CD, RaceOddsUmrn.RACE_ODDS_UMRN.RACE_NO, RaceOddsUmrn.RACE_ODDS_UMRN.ODDS_TIME_NO, RaceOddsUmrn.RACE_ODDS_UMRN.UMA_NO_1, RaceOddsUmrn.RACE_ODDS_UMRN.UMA_NO_2);
-        public static final UniqueKey<RaceUmaListRecord> KEY_RACE_UMA_LIST_PRIMARY = Internal.createUniqueKey(RaceUmaList.RACE_UMA_LIST, "KEY_race_uma_list_PRIMARY", RaceUmaList.RACE_UMA_LIST.KAISAI_CD, RaceUmaList.RACE_UMA_LIST.RACE_NO, RaceUmaList.RACE_UMA_LIST.UMA_NO);
+        public static final UniqueKey<KaisaiRecord> KEY_KAISAI_PRIMARY = Internal.createUniqueKey(Kaisai.KAISAI, "KEY_KAISAI_PRIMARY", Kaisai.KAISAI.KAISAI_CD);
+        public static final UniqueKey<RaceRecord> KEY_RACE_PRIMARY = Internal.createUniqueKey(Race.RACE, "KEY_RACE_PRIMARY", Race.RACE.KAISAI_CD, Race.RACE.RACE_NO);
+        public static final UniqueKey<RaceOddsRecord> KEY_RACE_ODDS_PRIMARY = Internal.createUniqueKey(RaceOdds.RACE_ODDS, "KEY_RACE_ODDS_PRIMARY", RaceOdds.RACE_ODDS.KAISAI_CD, RaceOdds.RACE_ODDS.RACE_NO, RaceOdds.RACE_ODDS.ODDS_TIME_NO);
+        public static final UniqueKey<RaceOddsFukuRecord> KEY_RACE_ODDS_FUKU_PRIMARY = Internal.createUniqueKey(RaceOddsFuku.RACE_ODDS_FUKU, "KEY_RACE_ODDS_FUKU_PRIMARY", RaceOddsFuku.RACE_ODDS_FUKU.KAISAI_CD, RaceOddsFuku.RACE_ODDS_FUKU.RACE_NO, RaceOddsFuku.RACE_ODDS_FUKU.ODDS_TIME_NO, RaceOddsFuku.RACE_ODDS_FUKU.UMA_NO);
+        public static final UniqueKey<RaceOddsTanRecord> KEY_RACE_ODDS_TAN_PRIMARY = Internal.createUniqueKey(RaceOddsTan.RACE_ODDS_TAN, "KEY_RACE_ODDS_TAN_PRIMARY", RaceOddsTan.RACE_ODDS_TAN.KAISAI_CD, RaceOddsTan.RACE_ODDS_TAN.RACE_NO, RaceOddsTan.RACE_ODDS_TAN.ODDS_TIME_NO, RaceOddsTan.RACE_ODDS_TAN.UMA_NO);
+        public static final UniqueKey<RaceOddsUmrnRecord> KEY_RACE_ODDS_UMRN_PRIMARY = Internal.createUniqueKey(RaceOddsUmrn.RACE_ODDS_UMRN, "KEY_RACE_ODDS_UMRN_PRIMARY", RaceOddsUmrn.RACE_ODDS_UMRN.KAISAI_CD, RaceOddsUmrn.RACE_ODDS_UMRN.RACE_NO, RaceOddsUmrn.RACE_ODDS_UMRN.ODDS_TIME_NO, RaceOddsUmrn.RACE_ODDS_UMRN.UMA_NO_1, RaceOddsUmrn.RACE_ODDS_UMRN.UMA_NO_2);
+        public static final UniqueKey<RaceUmaListRecord> KEY_RACE_UMA_LIST_PRIMARY = Internal.createUniqueKey(RaceUmaList.RACE_UMA_LIST, "KEY_RACE_UMA_LIST_PRIMARY", RaceUmaList.RACE_UMA_LIST.KAISAI_CD, RaceUmaList.RACE_UMA_LIST.RACE_NO, RaceUmaList.RACE_UMA_LIST.UMA_NO);
+        public static final UniqueKey<RaceUmaMarkRecord> KEY_RACE_UMA_MARK_PRIMARY = Internal.createUniqueKey(RaceUmaMark.RACE_UMA_MARK, "KEY_RACE_UMA_MARK_PRIMARY", RaceUmaMark.RACE_UMA_MARK.KAISAI_CD, RaceUmaMark.RACE_UMA_MARK.RACE_NO, RaceUmaMark.RACE_UMA_MARK.UMA_NO);
     }
 
     private static class ForeignKeys0 {
-        public static final ForeignKey<RaceRecord, KaisaiRecord> RACE_IBFK_1 = Internal.createForeignKey(crawler.jra.dao.Keys.KEY_KAISAI_PRIMARY, Race.RACE, "race_ibfk_1", Race.RACE.KAISAI_CD);
-        public static final ForeignKey<RaceOddsRecord, RaceRecord> RACE_ODDS_IBFK_1 = Internal.createForeignKey(crawler.jra.dao.Keys.KEY_RACE_PRIMARY, RaceOdds.RACE_ODDS, "race_odds_ibfk_1", RaceOdds.RACE_ODDS.KAISAI_CD, RaceOdds.RACE_ODDS.RACE_NO);
-        public static final ForeignKey<RaceOddsFukuRecord, RaceOddsRecord> RACE_ODDS_FUKU_IBFK_1 = Internal.createForeignKey(crawler.jra.dao.Keys.KEY_RACE_ODDS_PRIMARY, RaceOddsFuku.RACE_ODDS_FUKU, "race_odds_fuku_ibfk_1", RaceOddsFuku.RACE_ODDS_FUKU.KAISAI_CD, RaceOddsFuku.RACE_ODDS_FUKU.RACE_NO, RaceOddsFuku.RACE_ODDS_FUKU.ODDS_TIME_NO);
-        public static final ForeignKey<RaceOddsTanRecord, RaceOddsRecord> RACE_ODDS_TAN_IBFK_1 = Internal.createForeignKey(crawler.jra.dao.Keys.KEY_RACE_ODDS_PRIMARY, RaceOddsTan.RACE_ODDS_TAN, "race_odds_tan_ibfk_1", RaceOddsTan.RACE_ODDS_TAN.KAISAI_CD, RaceOddsTan.RACE_ODDS_TAN.RACE_NO, RaceOddsTan.RACE_ODDS_TAN.ODDS_TIME_NO);
-        public static final ForeignKey<RaceOddsUmrnRecord, RaceOddsRecord> RACE_ODDS_UMRN_IBFK_1 = Internal.createForeignKey(crawler.jra.dao.Keys.KEY_RACE_ODDS_PRIMARY, RaceOddsUmrn.RACE_ODDS_UMRN, "race_odds_umrn_ibfk_1", RaceOddsUmrn.RACE_ODDS_UMRN.KAISAI_CD, RaceOddsUmrn.RACE_ODDS_UMRN.RACE_NO, RaceOddsUmrn.RACE_ODDS_UMRN.ODDS_TIME_NO);
-        public static final ForeignKey<RaceUmaListRecord, RaceRecord> RACE_UMA_LIST_IBFK_1 = Internal.createForeignKey(crawler.jra.dao.Keys.KEY_RACE_PRIMARY, RaceUmaList.RACE_UMA_LIST, "race_uma_list_ibfk_1", RaceUmaList.RACE_UMA_LIST.KAISAI_CD, RaceUmaList.RACE_UMA_LIST.RACE_NO);
+        public static final ForeignKey<RaceRecord, KaisaiRecord> RACE_IBFK_1 = Internal.createForeignKey(crawler.jra.dao.Keys.KEY_KAISAI_PRIMARY, Race.RACE, "RACE_ibfk_1", Race.RACE.KAISAI_CD);
+        public static final ForeignKey<RaceOddsRecord, RaceRecord> RACE_ODDS_IBFK_1 = Internal.createForeignKey(crawler.jra.dao.Keys.KEY_RACE_PRIMARY, RaceOdds.RACE_ODDS, "RACE_ODDS_ibfk_1", RaceOdds.RACE_ODDS.KAISAI_CD, RaceOdds.RACE_ODDS.RACE_NO);
+        public static final ForeignKey<RaceOddsFukuRecord, RaceOddsRecord> RACE_ODDS_FUKU_IBFK_1 = Internal.createForeignKey(crawler.jra.dao.Keys.KEY_RACE_ODDS_PRIMARY, RaceOddsFuku.RACE_ODDS_FUKU, "RACE_ODDS_FUKU_ibfk_1", RaceOddsFuku.RACE_ODDS_FUKU.KAISAI_CD, RaceOddsFuku.RACE_ODDS_FUKU.RACE_NO, RaceOddsFuku.RACE_ODDS_FUKU.ODDS_TIME_NO);
+        public static final ForeignKey<RaceOddsTanRecord, RaceOddsRecord> RACE_ODDS_TAN_IBFK_1 = Internal.createForeignKey(crawler.jra.dao.Keys.KEY_RACE_ODDS_PRIMARY, RaceOddsTan.RACE_ODDS_TAN, "RACE_ODDS_TAN_ibfk_1", RaceOddsTan.RACE_ODDS_TAN.KAISAI_CD, RaceOddsTan.RACE_ODDS_TAN.RACE_NO, RaceOddsTan.RACE_ODDS_TAN.ODDS_TIME_NO);
+        public static final ForeignKey<RaceOddsUmrnRecord, RaceOddsRecord> RACE_ODDS_UMRN_IBFK_1 = Internal.createForeignKey(crawler.jra.dao.Keys.KEY_RACE_ODDS_PRIMARY, RaceOddsUmrn.RACE_ODDS_UMRN, "RACE_ODDS_UMRN_ibfk_1", RaceOddsUmrn.RACE_ODDS_UMRN.KAISAI_CD, RaceOddsUmrn.RACE_ODDS_UMRN.RACE_NO, RaceOddsUmrn.RACE_ODDS_UMRN.ODDS_TIME_NO);
+        public static final ForeignKey<RaceUmaListRecord, RaceRecord> RACE_UMA_LIST_IBFK_1 = Internal.createForeignKey(crawler.jra.dao.Keys.KEY_RACE_PRIMARY, RaceUmaList.RACE_UMA_LIST, "RACE_UMA_LIST_ibfk_1", RaceUmaList.RACE_UMA_LIST.KAISAI_CD, RaceUmaList.RACE_UMA_LIST.RACE_NO);
+        public static final ForeignKey<RaceUmaMarkRecord, RaceUmaListRecord> RACE_UMA_MARK_IBFK_1 = Internal.createForeignKey(crawler.jra.dao.Keys.KEY_RACE_UMA_LIST_PRIMARY, RaceUmaMark.RACE_UMA_MARK, "RACE_UMA_MARK_ibfk_1", RaceUmaMark.RACE_UMA_MARK.KAISAI_CD, RaceUmaMark.RACE_UMA_MARK.RACE_NO, RaceUmaMark.RACE_UMA_MARK.UMA_NO);
     }
 }

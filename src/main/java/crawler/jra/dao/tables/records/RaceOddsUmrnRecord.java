@@ -32,157 +32,157 @@ import org.jooq.types.UByte;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RaceOddsUmrnRecord extends UpdatableRecordImpl<RaceOddsUmrnRecord> implements Record11<String, UByte, UByte, UByte, UByte, UByte, UByte, BigDecimal, BigDecimal, Timestamp, Timestamp> {
 
-    private static final long serialVersionUID = 1355004233;
+    private static final long serialVersionUID = -1112393481;
 
     /**
-     * Setter for <code>appdb01.race_odds_umrn.KAISAI_CD</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.KAISAI_CD</code>.
      */
     public void setKaisaiCd(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_umrn.KAISAI_CD</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.KAISAI_CD</code>.
      */
     public String getKaisaiCd() {
         return (String) get(0);
     }
 
     /**
-     * Setter for <code>appdb01.race_odds_umrn.RACE_NO</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.RACE_NO</code>.
      */
     public void setRaceNo(UByte value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_umrn.RACE_NO</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.RACE_NO</code>.
      */
     public UByte getRaceNo() {
         return (UByte) get(1);
     }
 
     /**
-     * Setter for <code>appdb01.race_odds_umrn.ODDS_TIME_NO</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.ODDS_TIME_NO</code>.
      */
     public void setOddsTimeNo(UByte value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_umrn.ODDS_TIME_NO</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.ODDS_TIME_NO</code>.
      */
     public UByte getOddsTimeNo() {
         return (UByte) get(2);
     }
 
     /**
-     * Setter for <code>appdb01.race_odds_umrn.UMA_NO_1</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.UMA_NO_1</code>.
      */
     public void setUmaNo_1(UByte value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_umrn.UMA_NO_1</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.UMA_NO_1</code>.
      */
     public UByte getUmaNo_1() {
         return (UByte) get(3);
     }
 
     /**
-     * Setter for <code>appdb01.race_odds_umrn.UMA_NO_2</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.UMA_NO_2</code>.
      */
     public void setUmaNo_2(UByte value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_umrn.UMA_NO_2</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.UMA_NO_2</code>.
      */
     public UByte getUmaNo_2() {
         return (UByte) get(4);
     }
 
     /**
-     * Setter for <code>appdb01.race_odds_umrn.NINKI_NO</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.NINKI_NO</code>.
      */
     public void setNinkiNo(UByte value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_umrn.NINKI_NO</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.NINKI_NO</code>.
      */
     public UByte getNinkiNo() {
         return (UByte) get(5);
     }
 
     /**
-     * Setter for <code>appdb01.race_odds_umrn.SORT_NO</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.SORT_NO</code>.
      */
     public void setSortNo(UByte value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_umrn.SORT_NO</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.SORT_NO</code>.
      */
     public UByte getSortNo() {
         return (UByte) get(6);
     }
 
     /**
-     * Setter for <code>appdb01.race_odds_umrn.UMRN_ODDS</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.UMRN_ODDS</code>.
      */
     public void setUmrnOdds(BigDecimal value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_umrn.UMRN_ODDS</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.UMRN_ODDS</code>.
      */
     public BigDecimal getUmrnOdds() {
         return (BigDecimal) get(7);
     }
 
     /**
-     * Setter for <code>appdb01.race_odds_umrn.DIFF_RT</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.DIFF_RT</code>.
      */
     public void setDiffRt(BigDecimal value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_umrn.DIFF_RT</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.DIFF_RT</code>.
      */
     public BigDecimal getDiffRt() {
         return (BigDecimal) get(8);
     }
 
     /**
-     * Setter for <code>appdb01.race_odds_umrn.INSERT_DTTM</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.INSERT_DTTM</code>.
      */
     public void setInsertDttm(Timestamp value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_umrn.INSERT_DTTM</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.INSERT_DTTM</code>.
      */
     public Timestamp getInsertDttm() {
         return (Timestamp) get(9);
     }
 
     /**
-     * Setter for <code>appdb01.race_odds_umrn.UPDATE_DTTM</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.UPDATE_DTTM</code>.
      */
     public void setUpdateDttm(Timestamp value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_umrn.UPDATE_DTTM</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.UPDATE_DTTM</code>.
      */
     public Timestamp getUpdateDttm() {
         return (Timestamp) get(10);

@@ -31,73 +31,73 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class KaisaiRecord extends UpdatableRecordImpl<KaisaiRecord> implements Record5<String, String, Date, Timestamp, Timestamp> {
 
-    private static final long serialVersionUID = -869616448;
+    private static final long serialVersionUID = -7795640;
 
     /**
-     * Setter for <code>appdb01.kaisai.KAISAI_CD</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.KAISAI.KAISAI_CD</code>.
      */
     public void setKaisaiCd(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>appdb01.kaisai.KAISAI_CD</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.KAISAI.KAISAI_CD</code>.
      */
     public String getKaisaiCd() {
         return (String) get(0);
     }
 
     /**
-     * Setter for <code>appdb01.kaisai.KAISAI_NM</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.KAISAI.KAISAI_NM</code>.
      */
     public void setKaisaiNm(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>appdb01.kaisai.KAISAI_NM</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.KAISAI.KAISAI_NM</code>.
      */
     public String getKaisaiNm() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>appdb01.kaisai.KAISAI_DT</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.KAISAI.KAISAI_DT</code>.
      */
     public void setKaisaiDt(Date value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>appdb01.kaisai.KAISAI_DT</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.KAISAI.KAISAI_DT</code>.
      */
     public Date getKaisaiDt() {
         return (Date) get(2);
     }
 
     /**
-     * Setter for <code>appdb01.kaisai.INSERT_DTTM</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.KAISAI.INSERT_DTTM</code>.
      */
     public void setInsertDttm(Timestamp value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>appdb01.kaisai.INSERT_DTTM</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.KAISAI.INSERT_DTTM</code>.
      */
     public Timestamp getInsertDttm() {
         return (Timestamp) get(3);
     }
 
     /**
-     * Setter for <code>appdb01.kaisai.UPDATE_DTTM</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.KAISAI.UPDATE_DTTM</code>.
      */
     public void setUpdateDttm(Timestamp value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>appdb01.kaisai.UPDATE_DTTM</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.KAISAI.UPDATE_DTTM</code>.
      */
     public Timestamp getUpdateDttm() {
         return (Timestamp) get(4);

@@ -31,59 +31,59 @@ import org.jooq.types.UByte;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RaceRecord extends UpdatableRecordImpl<RaceRecord> implements Record4<String, UByte, Timestamp, Timestamp> {
 
-    private static final long serialVersionUID = 419022485;
+    private static final long serialVersionUID = -1679954023;
 
     /**
-     * Setter for <code>appdb01.race.KAISAI_CD</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE.KAISAI_CD</code>.
      */
     public void setKaisaiCd(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>appdb01.race.KAISAI_CD</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE.KAISAI_CD</code>.
      */
     public String getKaisaiCd() {
         return (String) get(0);
     }
 
     /**
-     * Setter for <code>appdb01.race.RACE_NO</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE.RACE_NO</code>.
      */
     public void setRaceNo(UByte value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>appdb01.race.RACE_NO</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE.RACE_NO</code>.
      */
     public UByte getRaceNo() {
         return (UByte) get(1);
     }
 
     /**
-     * Setter for <code>appdb01.race.INSERT_DTTM</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE.INSERT_DTTM</code>.
      */
     public void setInsertDttm(Timestamp value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>appdb01.race.INSERT_DTTM</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE.INSERT_DTTM</code>.
      */
     public Timestamp getInsertDttm() {
         return (Timestamp) get(2);
     }
 
     /**
-     * Setter for <code>appdb01.race.UPDATE_DTTM</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE.UPDATE_DTTM</code>.
      */
     public void setUpdateDttm(Timestamp value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>appdb01.race.UPDATE_DTTM</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE.UPDATE_DTTM</code>.
      */
     public Timestamp getUpdateDttm() {
         return (Timestamp) get(3);

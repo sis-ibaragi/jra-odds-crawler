@@ -4,7 +4,7 @@
 package crawler.jra.dao.tables;
 
 
-import crawler.jra.dao.Appdb01;
+import crawler.jra.dao.Ihq2xbiptmm0mjtp;
 import crawler.jra.dao.Indexes;
 import crawler.jra.dao.Keys;
 import crawler.jra.dao.tables.records.RaceOddsTanRecord;
@@ -43,10 +43,10 @@ import org.jooq.types.UByte;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RaceOddsTan extends TableImpl<RaceOddsTanRecord> {
 
-    private static final long serialVersionUID = -551173861;
+    private static final long serialVersionUID = 551203284;
 
     /**
-     * The reference instance of <code>appdb01.race_odds_tan</code>
+     * The reference instance of <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN</code>
      */
     public static final RaceOddsTan RACE_ODDS_TAN = new RaceOddsTan();
 
@@ -59,66 +59,66 @@ public class RaceOddsTan extends TableImpl<RaceOddsTanRecord> {
     }
 
     /**
-     * The column <code>appdb01.race_odds_tan.KAISAI_CD</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.KAISAI_CD</code>.
      */
     public final TableField<RaceOddsTanRecord, String> KAISAI_CD = createField("KAISAI_CD", org.jooq.impl.SQLDataType.CHAR(10).nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.race_odds_tan.RACE_NO</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.RACE_NO</code>.
      */
     public final TableField<RaceOddsTanRecord, UByte> RACE_NO = createField("RACE_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.race_odds_tan.ODDS_TIME_NO</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.ODDS_TIME_NO</code>.
      */
     public final TableField<RaceOddsTanRecord, UByte> ODDS_TIME_NO = createField("ODDS_TIME_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.race_odds_tan.UMA_NO</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.UMA_NO</code>.
      */
     public final TableField<RaceOddsTanRecord, UByte> UMA_NO = createField("UMA_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.race_odds_tan.NINKI_NO</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.NINKI_NO</code>.
      */
-    public final TableField<RaceOddsTanRecord, UByte> NINKI_NO = createField("NINKI_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.defaultValue(org.jooq.impl.DSL.field("NULL", org.jooq.impl.SQLDataType.TINYINTUNSIGNED)), this, "");
+    public final TableField<RaceOddsTanRecord, UByte> NINKI_NO = createField("NINKI_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED, this, "");
 
     /**
-     * The column <code>appdb01.race_odds_tan.SORT_NO</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.SORT_NO</code>.
      */
-    public final TableField<RaceOddsTanRecord, UByte> SORT_NO = createField("SORT_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.defaultValue(org.jooq.impl.DSL.field("NULL", org.jooq.impl.SQLDataType.TINYINTUNSIGNED)), this, "");
+    public final TableField<RaceOddsTanRecord, UByte> SORT_NO = createField("SORT_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED, this, "");
 
     /**
-     * The column <code>appdb01.race_odds_tan.TAN_ODDS</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.TAN_ODDS</code>.
      */
-    public final TableField<RaceOddsTanRecord, BigDecimal> TAN_ODDS = createField("TAN_ODDS", org.jooq.impl.SQLDataType.DECIMAL(6, 1).defaultValue(org.jooq.impl.DSL.field("NULL", org.jooq.impl.SQLDataType.DECIMAL)), this, "");
+    public final TableField<RaceOddsTanRecord, BigDecimal> TAN_ODDS = createField("TAN_ODDS", org.jooq.impl.SQLDataType.DECIMAL(6, 1), this, "");
 
     /**
-     * The column <code>appdb01.race_odds_tan.INSERT_DTTM</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.INSERT_DTTM</code>.
      */
-    public final TableField<RaceOddsTanRecord, Timestamp> INSERT_DTTM = createField("INSERT_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("current_timestamp()", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
+    public final TableField<RaceOddsTanRecord, Timestamp> INSERT_DTTM = createField("INSERT_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
 
     /**
-     * The column <code>appdb01.race_odds_tan.UPDATE_DTTM</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.UPDATE_DTTM</code>.
      */
-    public final TableField<RaceOddsTanRecord, Timestamp> UPDATE_DTTM = createField("UPDATE_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("current_timestamp()", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
+    public final TableField<RaceOddsTanRecord, Timestamp> UPDATE_DTTM = createField("UPDATE_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
 
     /**
-     * Create a <code>appdb01.race_odds_tan</code> table reference
+     * Create a <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN</code> table reference
      */
     public RaceOddsTan() {
-        this(DSL.name("race_odds_tan"), null);
+        this(DSL.name("RACE_ODDS_TAN"), null);
     }
 
     /**
-     * Create an aliased <code>appdb01.race_odds_tan</code> table reference
+     * Create an aliased <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN</code> table reference
      */
     public RaceOddsTan(String alias) {
         this(DSL.name(alias), RACE_ODDS_TAN);
     }
 
     /**
-     * Create an aliased <code>appdb01.race_odds_tan</code> table reference
+     * Create an aliased <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN</code> table reference
      */
     public RaceOddsTan(Name alias) {
         this(alias, RACE_ODDS_TAN);
@@ -141,7 +141,7 @@ public class RaceOddsTan extends TableImpl<RaceOddsTanRecord> {
      */
     @Override
     public Schema getSchema() {
-        return Appdb01.APPDB01;
+        return Ihq2xbiptmm0mjtp.IHQ2XBIPTMM0MJTP;
     }
 
     /**
