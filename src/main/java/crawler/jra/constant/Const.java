@@ -19,6 +19,8 @@ public class Const {
 	/** JRA オッズページ URL */
 	public static final String ODDS_URL = BASE_URL + "/JRADB/accessO.html";
 
+	public static final int REQUEST_TIMEOUT_MS = 60_000;
+
 	/** 競馬場とコードの Map */
 	public static Map<String, String> keibajoNmCdMap;
 	static {
