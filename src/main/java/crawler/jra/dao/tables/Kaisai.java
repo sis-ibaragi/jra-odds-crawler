@@ -4,7 +4,7 @@
 package crawler.jra.dao.tables;
 
 
-import crawler.jra.dao.Appdb01;
+import crawler.jra.dao.Ihq2xbiptmm0mjtp;
 import crawler.jra.dao.Indexes;
 import crawler.jra.dao.Keys;
 import crawler.jra.dao.tables.records.KaisaiRecord;
@@ -42,10 +42,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Kaisai extends TableImpl<KaisaiRecord> {
 
-    private static final long serialVersionUID = -2137023610;
+    private static final long serialVersionUID = 254068002;
 
     /**
-     * The reference instance of <code>appdb01.kaisai</code>
+     * The reference instance of <code>ihq2xbiptmm0mjtp.KAISAI</code>
      */
     public static final Kaisai KAISAI = new Kaisai();
 
@@ -58,46 +58,46 @@ public class Kaisai extends TableImpl<KaisaiRecord> {
     }
 
     /**
-     * The column <code>appdb01.kaisai.KAISAI_CD</code>.
+     * The column <code>ihq2xbiptmm0mjtp.KAISAI.KAISAI_CD</code>.
      */
     public final TableField<KaisaiRecord, String> KAISAI_CD = createField("KAISAI_CD", org.jooq.impl.SQLDataType.CHAR(10).nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.kaisai.KAISAI_NM</code>.
+     * The column <code>ihq2xbiptmm0mjtp.KAISAI.KAISAI_NM</code>.
      */
     public final TableField<KaisaiRecord, String> KAISAI_NM = createField("KAISAI_NM", org.jooq.impl.SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.kaisai.KAISAI_DT</code>.
+     * The column <code>ihq2xbiptmm0mjtp.KAISAI.KAISAI_DT</code>.
      */
     public final TableField<KaisaiRecord, Date> KAISAI_DT = createField("KAISAI_DT", org.jooq.impl.SQLDataType.DATE.nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.kaisai.INSERT_DTTM</code>.
+     * The column <code>ihq2xbiptmm0mjtp.KAISAI.INSERT_DTTM</code>.
      */
-    public final TableField<KaisaiRecord, Timestamp> INSERT_DTTM = createField("INSERT_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("current_timestamp()", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
+    public final TableField<KaisaiRecord, Timestamp> INSERT_DTTM = createField("INSERT_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
 
     /**
-     * The column <code>appdb01.kaisai.UPDATE_DTTM</code>.
+     * The column <code>ihq2xbiptmm0mjtp.KAISAI.UPDATE_DTTM</code>.
      */
-    public final TableField<KaisaiRecord, Timestamp> UPDATE_DTTM = createField("UPDATE_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("current_timestamp()", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
+    public final TableField<KaisaiRecord, Timestamp> UPDATE_DTTM = createField("UPDATE_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
 
     /**
-     * Create a <code>appdb01.kaisai</code> table reference
+     * Create a <code>ihq2xbiptmm0mjtp.KAISAI</code> table reference
      */
     public Kaisai() {
-        this(DSL.name("kaisai"), null);
+        this(DSL.name("KAISAI"), null);
     }
 
     /**
-     * Create an aliased <code>appdb01.kaisai</code> table reference
+     * Create an aliased <code>ihq2xbiptmm0mjtp.KAISAI</code> table reference
      */
     public Kaisai(String alias) {
         this(DSL.name(alias), KAISAI);
     }
 
     /**
-     * Create an aliased <code>appdb01.kaisai</code> table reference
+     * Create an aliased <code>ihq2xbiptmm0mjtp.KAISAI</code> table reference
      */
     public Kaisai(Name alias) {
         this(alias, KAISAI);
@@ -120,7 +120,7 @@ public class Kaisai extends TableImpl<KaisaiRecord> {
      */
     @Override
     public Schema getSchema() {
-        return Appdb01.APPDB01;
+        return Ihq2xbiptmm0mjtp.IHQ2XBIPTMM0MJTP;
     }
 
     /**

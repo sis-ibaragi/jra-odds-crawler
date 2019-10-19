@@ -11,12 +11,13 @@ import crawler.jra.dao.tables.RaceOddsFuku;
 import crawler.jra.dao.tables.RaceOddsTan;
 import crawler.jra.dao.tables.RaceOddsUmrn;
 import crawler.jra.dao.tables.RaceUmaList;
+import crawler.jra.dao.tables.RaceUmaMark;
 
 import javax.annotation.Generated;
 
 
 /**
- * Convenience access to all tables in appdb01
+ * Convenience access to all tables in ihq2xbiptmm0mjtp
  */
 @Generated(
     value = {
@@ -29,37 +30,42 @@ import javax.annotation.Generated;
 public class Tables {
 
     /**
-     * The table <code>appdb01.kaisai</code>.
+     * The table <code>ihq2xbiptmm0mjtp.KAISAI</code>.
      */
     public static final Kaisai KAISAI = crawler.jra.dao.tables.Kaisai.KAISAI;
 
     /**
-     * The table <code>appdb01.race</code>.
+     * The table <code>ihq2xbiptmm0mjtp.RACE</code>.
      */
     public static final Race RACE = crawler.jra.dao.tables.Race.RACE;
 
     /**
-     * The table <code>appdb01.race_odds</code>.
+     * The table <code>ihq2xbiptmm0mjtp.RACE_ODDS</code>.
      */
     public static final RaceOdds RACE_ODDS = crawler.jra.dao.tables.RaceOdds.RACE_ODDS;
 
     /**
-     * The table <code>appdb01.race_odds_fuku</code>.
+     * The table <code>ihq2xbiptmm0mjtp.RACE_ODDS_FUKU</code>.
      */
     public static final RaceOddsFuku RACE_ODDS_FUKU = crawler.jra.dao.tables.RaceOddsFuku.RACE_ODDS_FUKU;
 
     /**
-     * The table <code>appdb01.race_odds_tan</code>.
+     * The table <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN</code>.
      */
     public static final RaceOddsTan RACE_ODDS_TAN = crawler.jra.dao.tables.RaceOddsTan.RACE_ODDS_TAN;
 
     /**
-     * The table <code>appdb01.race_odds_umrn</code>.
+     * The table <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN</code>.
      */
     public static final RaceOddsUmrn RACE_ODDS_UMRN = crawler.jra.dao.tables.RaceOddsUmrn.RACE_ODDS_UMRN;
 
     /**
-     * The table <code>appdb01.race_uma_list</code>.
+     * The table <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST</code>.
      */
     public static final RaceUmaList RACE_UMA_LIST = crawler.jra.dao.tables.RaceUmaList.RACE_UMA_LIST;
+
+    /**
+     * The table <code>ihq2xbiptmm0mjtp.RACE_UMA_MARK</code>.
+     */
+    public static final RaceUmaMark RACE_UMA_MARK = crawler.jra.dao.tables.RaceUmaMark.RACE_UMA_MARK;
 }

@@ -11,6 +11,7 @@ import crawler.jra.dao.tables.RaceOddsFuku;
 import crawler.jra.dao.tables.RaceOddsTan;
 import crawler.jra.dao.tables.RaceOddsUmrn;
 import crawler.jra.dao.tables.RaceUmaList;
+import crawler.jra.dao.tables.RaceUmaMark;
 
 import javax.annotation.Generated;
 
@@ -20,7 +21,8 @@ import org.jooq.impl.Internal;
 
 
 /**
- * A class modelling indexes of tables of the <code>appdb01</code> schema.
+ * A class modelling indexes of tables of the <code>ihq2xbiptmm0mjtp</code> 
+ * schema.
  */
 @Generated(
     value = {
@@ -43,6 +45,7 @@ public class Indexes {
     public static final Index RACE_ODDS_TAN_PRIMARY = Indexes0.RACE_ODDS_TAN_PRIMARY;
     public static final Index RACE_ODDS_UMRN_PRIMARY = Indexes0.RACE_ODDS_UMRN_PRIMARY;
     public static final Index RACE_UMA_LIST_PRIMARY = Indexes0.RACE_UMA_LIST_PRIMARY;
+    public static final Index RACE_UMA_MARK_PRIMARY = Indexes0.RACE_UMA_MARK_PRIMARY;
 
     // -------------------------------------------------------------------------
     // [#1459] distribute members to avoid static initialisers > 64kb
@@ -56,5 +59,6 @@ public class Indexes {
         public static Index RACE_ODDS_TAN_PRIMARY = Internal.createIndex("PRIMARY", RaceOddsTan.RACE_ODDS_TAN, new OrderField[] { RaceOddsTan.RACE_ODDS_TAN.KAISAI_CD, RaceOddsTan.RACE_ODDS_TAN.RACE_NO, RaceOddsTan.RACE_ODDS_TAN.ODDS_TIME_NO, RaceOddsTan.RACE_ODDS_TAN.UMA_NO }, true);
         public static Index RACE_ODDS_UMRN_PRIMARY = Internal.createIndex("PRIMARY", RaceOddsUmrn.RACE_ODDS_UMRN, new OrderField[] { RaceOddsUmrn.RACE_ODDS_UMRN.KAISAI_CD, RaceOddsUmrn.RACE_ODDS_UMRN.RACE_NO, RaceOddsUmrn.RACE_ODDS_UMRN.ODDS_TIME_NO, RaceOddsUmrn.RACE_ODDS_UMRN.UMA_NO_1, RaceOddsUmrn.RACE_ODDS_UMRN.UMA_NO_2 }, true);
         public static Index RACE_UMA_LIST_PRIMARY = Internal.createIndex("PRIMARY", RaceUmaList.RACE_UMA_LIST, new OrderField[] { RaceUmaList.RACE_UMA_LIST.KAISAI_CD, RaceUmaList.RACE_UMA_LIST.RACE_NO, RaceUmaList.RACE_UMA_LIST.UMA_NO }, true);
+        public static Index RACE_UMA_MARK_PRIMARY = Internal.createIndex("PRIMARY", RaceUmaMark.RACE_UMA_MARK, new OrderField[] { RaceUmaMark.RACE_UMA_MARK.KAISAI_CD, RaceUmaMark.RACE_UMA_MARK.RACE_NO, RaceUmaMark.RACE_UMA_MARK.UMA_NO }, true);
     }
 }

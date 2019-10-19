@@ -4,7 +4,7 @@
 package crawler.jra.dao.tables;
 
 
-import crawler.jra.dao.Appdb01;
+import crawler.jra.dao.Ihq2xbiptmm0mjtp;
 import crawler.jra.dao.Indexes;
 import crawler.jra.dao.Keys;
 import crawler.jra.dao.tables.records.RaceUmaListRecord;
@@ -42,10 +42,10 @@ import org.jooq.types.UByte;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RaceUmaList extends TableImpl<RaceUmaListRecord> {
 
-    private static final long serialVersionUID = -1831108346;
+    private static final long serialVersionUID = -1513340850;
 
     /**
-     * The reference instance of <code>appdb01.race_uma_list</code>
+     * The reference instance of <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST</code>
      */
     public static final RaceUmaList RACE_UMA_LIST = new RaceUmaList();
 
@@ -58,61 +58,61 @@ public class RaceUmaList extends TableImpl<RaceUmaListRecord> {
     }
 
     /**
-     * The column <code>appdb01.race_uma_list.KAISAI_CD</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.KAISAI_CD</code>.
      */
     public final TableField<RaceUmaListRecord, String> KAISAI_CD = createField("KAISAI_CD", org.jooq.impl.SQLDataType.CHAR(10).nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.race_uma_list.RACE_NO</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.RACE_NO</code>.
      */
     public final TableField<RaceUmaListRecord, UByte> RACE_NO = createField("RACE_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.race_uma_list.UMA_NO</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.UMA_NO</code>.
      */
     public final TableField<RaceUmaListRecord, UByte> UMA_NO = createField("UMA_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.race_uma_list.WAKU_NO</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.WAKU_NO</code>.
      */
     public final TableField<RaceUmaListRecord, UByte> WAKU_NO = createField("WAKU_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.race_uma_list.UMA_NM</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.UMA_NM</code>.
      */
     public final TableField<RaceUmaListRecord, String> UMA_NM = createField("UMA_NM", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.race_uma_list.JOCKEY_NM</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.JOCKEY_NM</code>.
      */
     public final TableField<RaceUmaListRecord, String> JOCKEY_NM = createField("JOCKEY_NM", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.race_uma_list.INSERT_DTTM</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.INSERT_DTTM</code>.
      */
-    public final TableField<RaceUmaListRecord, Timestamp> INSERT_DTTM = createField("INSERT_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("current_timestamp()", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
+    public final TableField<RaceUmaListRecord, Timestamp> INSERT_DTTM = createField("INSERT_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
 
     /**
-     * The column <code>appdb01.race_uma_list.UPDATE_DTTM</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST.UPDATE_DTTM</code>.
      */
-    public final TableField<RaceUmaListRecord, Timestamp> UPDATE_DTTM = createField("UPDATE_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("current_timestamp()", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
+    public final TableField<RaceUmaListRecord, Timestamp> UPDATE_DTTM = createField("UPDATE_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
 
     /**
-     * Create a <code>appdb01.race_uma_list</code> table reference
+     * Create a <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST</code> table reference
      */
     public RaceUmaList() {
-        this(DSL.name("race_uma_list"), null);
+        this(DSL.name("RACE_UMA_LIST"), null);
     }
 
     /**
-     * Create an aliased <code>appdb01.race_uma_list</code> table reference
+     * Create an aliased <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST</code> table reference
      */
     public RaceUmaList(String alias) {
         this(DSL.name(alias), RACE_UMA_LIST);
     }
 
     /**
-     * Create an aliased <code>appdb01.race_uma_list</code> table reference
+     * Create an aliased <code>ihq2xbiptmm0mjtp.RACE_UMA_LIST</code> table reference
      */
     public RaceUmaList(Name alias) {
         this(alias, RACE_UMA_LIST);
@@ -135,7 +135,7 @@ public class RaceUmaList extends TableImpl<RaceUmaListRecord> {
      */
     @Override
     public Schema getSchema() {
-        return Appdb01.APPDB01;
+        return Ihq2xbiptmm0mjtp.IHQ2XBIPTMM0MJTP;
     }
 
     /**

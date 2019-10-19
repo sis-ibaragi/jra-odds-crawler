@@ -32,129 +32,129 @@ import org.jooq.types.UByte;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RaceOddsTanRecord extends UpdatableRecordImpl<RaceOddsTanRecord> implements Record9<String, UByte, UByte, UByte, UByte, UByte, BigDecimal, Timestamp, Timestamp> {
 
-    private static final long serialVersionUID = 229865419;
+    private static final long serialVersionUID = -1963709369;
 
     /**
-     * Setter for <code>appdb01.race_odds_tan.KAISAI_CD</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.KAISAI_CD</code>.
      */
     public void setKaisaiCd(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_tan.KAISAI_CD</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.KAISAI_CD</code>.
      */
     public String getKaisaiCd() {
         return (String) get(0);
     }
 
     /**
-     * Setter for <code>appdb01.race_odds_tan.RACE_NO</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.RACE_NO</code>.
      */
     public void setRaceNo(UByte value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_tan.RACE_NO</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.RACE_NO</code>.
      */
     public UByte getRaceNo() {
         return (UByte) get(1);
     }
 
     /**
-     * Setter for <code>appdb01.race_odds_tan.ODDS_TIME_NO</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.ODDS_TIME_NO</code>.
      */
     public void setOddsTimeNo(UByte value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_tan.ODDS_TIME_NO</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.ODDS_TIME_NO</code>.
      */
     public UByte getOddsTimeNo() {
         return (UByte) get(2);
     }
 
     /**
-     * Setter for <code>appdb01.race_odds_tan.UMA_NO</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.UMA_NO</code>.
      */
     public void setUmaNo(UByte value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_tan.UMA_NO</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.UMA_NO</code>.
      */
     public UByte getUmaNo() {
         return (UByte) get(3);
     }
 
     /**
-     * Setter for <code>appdb01.race_odds_tan.NINKI_NO</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.NINKI_NO</code>.
      */
     public void setNinkiNo(UByte value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_tan.NINKI_NO</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.NINKI_NO</code>.
      */
     public UByte getNinkiNo() {
         return (UByte) get(4);
     }
 
     /**
-     * Setter for <code>appdb01.race_odds_tan.SORT_NO</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.SORT_NO</code>.
      */
     public void setSortNo(UByte value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_tan.SORT_NO</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.SORT_NO</code>.
      */
     public UByte getSortNo() {
         return (UByte) get(5);
     }
 
     /**
-     * Setter for <code>appdb01.race_odds_tan.TAN_ODDS</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.TAN_ODDS</code>.
      */
     public void setTanOdds(BigDecimal value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_tan.TAN_ODDS</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.TAN_ODDS</code>.
      */
     public BigDecimal getTanOdds() {
         return (BigDecimal) get(6);
     }
 
     /**
-     * Setter for <code>appdb01.race_odds_tan.INSERT_DTTM</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.INSERT_DTTM</code>.
      */
     public void setInsertDttm(Timestamp value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_tan.INSERT_DTTM</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.INSERT_DTTM</code>.
      */
     public Timestamp getInsertDttm() {
         return (Timestamp) get(7);
     }
 
     /**
-     * Setter for <code>appdb01.race_odds_tan.UPDATE_DTTM</code>.
+     * Setter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.UPDATE_DTTM</code>.
      */
     public void setUpdateDttm(Timestamp value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>appdb01.race_odds_tan.UPDATE_DTTM</code>.
+     * Getter for <code>ihq2xbiptmm0mjtp.RACE_ODDS_TAN.UPDATE_DTTM</code>.
      */
     public Timestamp getUpdateDttm() {
         return (Timestamp) get(8);

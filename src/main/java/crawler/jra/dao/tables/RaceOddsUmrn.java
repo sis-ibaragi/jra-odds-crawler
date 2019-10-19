@@ -4,7 +4,7 @@
 package crawler.jra.dao.tables;
 
 
-import crawler.jra.dao.Appdb01;
+import crawler.jra.dao.Ihq2xbiptmm0mjtp;
 import crawler.jra.dao.Indexes;
 import crawler.jra.dao.Keys;
 import crawler.jra.dao.tables.records.RaceOddsUmrnRecord;
@@ -43,10 +43,10 @@ import org.jooq.types.UByte;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RaceOddsUmrn extends TableImpl<RaceOddsUmrnRecord> {
 
-    private static final long serialVersionUID = 493559945;
+    private static final long serialVersionUID = -383759517;
 
     /**
-     * The reference instance of <code>appdb01.race_odds_umrn</code>
+     * The reference instance of <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN</code>
      */
     public static final RaceOddsUmrn RACE_ODDS_UMRN = new RaceOddsUmrn();
 
@@ -59,76 +59,76 @@ public class RaceOddsUmrn extends TableImpl<RaceOddsUmrnRecord> {
     }
 
     /**
-     * The column <code>appdb01.race_odds_umrn.KAISAI_CD</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.KAISAI_CD</code>.
      */
     public final TableField<RaceOddsUmrnRecord, String> KAISAI_CD = createField("KAISAI_CD", org.jooq.impl.SQLDataType.CHAR(10).nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.race_odds_umrn.RACE_NO</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.RACE_NO</code>.
      */
     public final TableField<RaceOddsUmrnRecord, UByte> RACE_NO = createField("RACE_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.race_odds_umrn.ODDS_TIME_NO</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.ODDS_TIME_NO</code>.
      */
     public final TableField<RaceOddsUmrnRecord, UByte> ODDS_TIME_NO = createField("ODDS_TIME_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.race_odds_umrn.UMA_NO_1</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.UMA_NO_1</code>.
      */
     public final TableField<RaceOddsUmrnRecord, UByte> UMA_NO_1 = createField("UMA_NO_1", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.race_odds_umrn.UMA_NO_2</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.UMA_NO_2</code>.
      */
     public final TableField<RaceOddsUmrnRecord, UByte> UMA_NO_2 = createField("UMA_NO_2", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>appdb01.race_odds_umrn.NINKI_NO</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.NINKI_NO</code>.
      */
-    public final TableField<RaceOddsUmrnRecord, UByte> NINKI_NO = createField("NINKI_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.defaultValue(org.jooq.impl.DSL.field("NULL", org.jooq.impl.SQLDataType.TINYINTUNSIGNED)), this, "");
+    public final TableField<RaceOddsUmrnRecord, UByte> NINKI_NO = createField("NINKI_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED, this, "");
 
     /**
-     * The column <code>appdb01.race_odds_umrn.SORT_NO</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.SORT_NO</code>.
      */
-    public final TableField<RaceOddsUmrnRecord, UByte> SORT_NO = createField("SORT_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED.defaultValue(org.jooq.impl.DSL.field("NULL", org.jooq.impl.SQLDataType.TINYINTUNSIGNED)), this, "");
+    public final TableField<RaceOddsUmrnRecord, UByte> SORT_NO = createField("SORT_NO", org.jooq.impl.SQLDataType.TINYINTUNSIGNED, this, "");
 
     /**
-     * The column <code>appdb01.race_odds_umrn.UMRN_ODDS</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.UMRN_ODDS</code>.
      */
-    public final TableField<RaceOddsUmrnRecord, BigDecimal> UMRN_ODDS = createField("UMRN_ODDS", org.jooq.impl.SQLDataType.DECIMAL(6, 1).defaultValue(org.jooq.impl.DSL.field("NULL", org.jooq.impl.SQLDataType.DECIMAL)), this, "");
+    public final TableField<RaceOddsUmrnRecord, BigDecimal> UMRN_ODDS = createField("UMRN_ODDS", org.jooq.impl.SQLDataType.DECIMAL(6, 1), this, "");
 
     /**
-     * The column <code>appdb01.race_odds_umrn.DIFF_RT</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.DIFF_RT</code>.
      */
-    public final TableField<RaceOddsUmrnRecord, BigDecimal> DIFF_RT = createField("DIFF_RT", org.jooq.impl.SQLDataType.DECIMAL(4, 2).defaultValue(org.jooq.impl.DSL.field("NULL", org.jooq.impl.SQLDataType.DECIMAL)), this, "");
+    public final TableField<RaceOddsUmrnRecord, BigDecimal> DIFF_RT = createField("DIFF_RT", org.jooq.impl.SQLDataType.DECIMAL(4, 2), this, "");
 
     /**
-     * The column <code>appdb01.race_odds_umrn.INSERT_DTTM</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.INSERT_DTTM</code>.
      */
-    public final TableField<RaceOddsUmrnRecord, Timestamp> INSERT_DTTM = createField("INSERT_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("current_timestamp()", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
+    public final TableField<RaceOddsUmrnRecord, Timestamp> INSERT_DTTM = createField("INSERT_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
 
     /**
-     * The column <code>appdb01.race_odds_umrn.UPDATE_DTTM</code>.
+     * The column <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN.UPDATE_DTTM</code>.
      */
-    public final TableField<RaceOddsUmrnRecord, Timestamp> UPDATE_DTTM = createField("UPDATE_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("current_timestamp()", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
+    public final TableField<RaceOddsUmrnRecord, Timestamp> UPDATE_DTTM = createField("UPDATE_DTTM", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.TIMESTAMP)), this, "");
 
     /**
-     * Create a <code>appdb01.race_odds_umrn</code> table reference
+     * Create a <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN</code> table reference
      */
     public RaceOddsUmrn() {
-        this(DSL.name("race_odds_umrn"), null);
+        this(DSL.name("RACE_ODDS_UMRN"), null);
     }
 
     /**
-     * Create an aliased <code>appdb01.race_odds_umrn</code> table reference
+     * Create an aliased <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN</code> table reference
      */
     public RaceOddsUmrn(String alias) {
         this(DSL.name(alias), RACE_ODDS_UMRN);
     }
 
     /**
-     * Create an aliased <code>appdb01.race_odds_umrn</code> table reference
+     * Create an aliased <code>ihq2xbiptmm0mjtp.RACE_ODDS_UMRN</code> table reference
      */
     public RaceOddsUmrn(Name alias) {
         this(alias, RACE_ODDS_UMRN);
@@ -151,7 +151,7 @@ public class RaceOddsUmrn extends TableImpl<RaceOddsUmrnRecord> {
      */
     @Override
     public Schema getSchema() {
-        return Appdb01.APPDB01;
+        return Ihq2xbiptmm0mjtp.IHQ2XBIPTMM0MJTP;
     }
 
     /**
