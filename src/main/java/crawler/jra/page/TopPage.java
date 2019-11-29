@@ -37,7 +37,8 @@ public class TopPage {
 	 * @return OddsTopPage オブジェクト
 	 */
 	public KaisaiSelectPage goKaisaiSelectPage() {
-		Element element = this.document.selectFirst("#q_menu4 a");
+		Element element = this.document.selectFirst("#gnav_keiba ul li").nextElementSibling().nextElementSibling()
+				.nextElementSibling().selectFirst("a");
 		String cname = ScrapingUtils.getCnameFromDoAction(element.attr("onClick"));
 		Document oddsDoc = new PostForm(cname).post();
 		return new KaisaiSelectPage(oddsDoc);
