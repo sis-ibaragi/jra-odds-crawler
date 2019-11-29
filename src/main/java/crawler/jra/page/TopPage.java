@@ -26,7 +26,7 @@ public class TopPage {
 	 */
 	public TopPage() {
 		try {
-			this.document = Jsoup.connect(Const.BASE_URL).get();
+			this.document = Jsoup.connect(Const.BASE_URL).timeout(Const.REQUEST_TIMEOUT_MS).get();
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
