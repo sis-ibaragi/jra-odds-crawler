@@ -14,7 +14,7 @@ import java.util.Map;
 public class Const {
 
 	/** JRA トップページ URL */
-	public static final String BASE_URL = "http://www.jra.go.jp";
+	public static final String BASE_URL = "https://www.jra.go.jp";
 
 	/** JRA オッズページ URL */
 	public static final String ODDS_URL = BASE_URL + "/JRADB/accessO.html";
