@@ -59,9 +59,9 @@ public class RaceSelectPage {
 			// レース番号
 			String raceNo = element.selectFirst(" th.race_num a img").attr("alt");
 			// 単複
-			String tnpkOnclick = element.selectFirst("td.odds ul.btn_list li.tanpuku a").attr("onClick");
+			String tnpkOnclick = element.selectFirst("td.odds div.btn_list div.tanpuku a").attr("onClick");
 			// 馬連
-			String umrnOnclick = element.selectFirst("td.odds ul.btn_list li.umaren a").attr("onClick");
+			String umrnOnclick = element.selectFirst("td.odds div.btn_list div.umaren a").attr("onClick");
 			RacePageCnameDto dto = new RacePageCnameDto();
 			dto.setRaceNo(raceNo);
 			dto.setTnpkCname(ScrapingUtils.getCnameFromDoAction(tnpkOnclick));
