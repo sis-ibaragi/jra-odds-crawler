@@ -47,7 +47,7 @@ public class KaisaiSelectPage {
 		}
 		this.kaisaiCnameMap = new LinkedHashMap<>();
 
-		document.select("div.thisweek ul.link_list li").stream().forEach(element -> {
+		document.select("div.thisweek div.link_list div").stream().forEach(element -> {
 			String kaisaiName = Optional.ofNullable(element.selectFirst("a")).map(m -> m.text()).orElse(null);
 			String kaisaiOnclick = Optional.ofNullable(element.selectFirst("a")).map(m -> m.attr("onClick"))
 					.orElse(null);
