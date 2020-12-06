@@ -3,9 +3,9 @@
  */
 package crawler.jra.page;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.jsoup.nodes.Document;
 
@@ -56,8 +56,7 @@ public class RaceTnpkNinPage {
 		this.raceDto.setOddsTmStr(document.selectFirst("div.refresh_line div.time").text()
 				.replaceAll("[^0-9時]", "").replaceAll("時", ":"));
 
-		this.raceTnpkNinList = new ArrayList<>();
-		document.select("div#odds_list table.tanpuku tbody tr").forEach(element -> {
+		this.raceTnpkNinList = document.select("div#odds_list table.tanpuku tbody tr").stream().map(element -> {
 			RaceTnpkNinDto dto = new RaceTnpkNinDto();
 			dto.setNinkiNo(element.selectFirst("td.pop").text());
 			dto.setWakuNo(element.selectFirst("td.waku img").attr("alt").replaceAll("[^0-9]", ""));
@@ -69,8 +68,9 @@ public class RaceTnpkNinPage {
 			dto.setFukuOddsMaxStr(
 					Optional.ofNullable(element.selectFirst("td.odds_fuku span.max")).map(e -> e.text()).orElse(null));
 			dto.setJockeyNm(element.selectFirst("td.jockey").text());
-			this.raceTnpkNinList.add(dto);
-		});
+			return dto;
+		}).filter(dto -> dto.getNinkiNo().matches("\\d+")).collect(Collectors.toList());
+
 		return this;
 	}
 }
