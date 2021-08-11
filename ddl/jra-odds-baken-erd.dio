@@ -1,0 +1,209 @@
+<mxfile host="65bd71144e">
+    <diagram id="gQWd2qBw5Nw_wesjx2W4" name="Page-1">
+        <mxGraphModel dx="1013" dy="875" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot;&gt;RACE_ODDS&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;KAISAI_CD&lt;/td&gt;&lt;td&gt;CHAR(10)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;RACE_NO&lt;/td&gt;&lt;td&gt;NUMERIC(2)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK&lt;/td&gt;&lt;td&gt;ODDS_TIME_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;TNPK_ODDS_TIME&lt;br&gt;&lt;/td&gt;&lt;td&gt;TIME&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;td&gt;UMRN_ODDS_TIME&lt;/td&gt;&lt;td&gt;TIME&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;INSERT_DTTM&lt;br&gt;&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;UPDATE_DTTM&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="360" width="360" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot;&gt;RACE_ODDS_UMRN&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;KAISAI_CD&lt;/td&gt;&lt;td&gt;CHAR(10)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;RACE_NO&lt;/td&gt;&lt;td&gt;&lt;span&gt;TINYINT&lt;/span&gt;&amp;nbsp;UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;ODDS_TIME_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK&lt;/td&gt;&lt;td&gt;UMA_NO_1&lt;br&gt;&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK&lt;/td&gt;&lt;td&gt;UMA_NO_2&lt;br&gt;&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;NINKI_NO&lt;br&gt;&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;SORT_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;UMRN_ODDS&lt;br&gt;&lt;/td&gt;&lt;td&gt;DECIMAL(6,1)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;DIFF_RT&lt;br&gt;&lt;/td&gt;&lt;td&gt;DECIMAL(4,2)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;INSERT_DTTM&lt;br&gt;&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;UPDATE_DTTM&lt;br&gt;&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;br&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1278" y="580" width="360" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot;&gt;RACE_UMA_LIST&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;KAISAI_CD&lt;/td&gt;&lt;td&gt;CHAR(10)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;RACE_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK&lt;/td&gt;&lt;td&gt;UMA_NO&lt;br&gt;&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;WAKU_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;UMA_NM&lt;/td&gt;&lt;td&gt;VARCHAR(64)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;JOCKEY_NM&lt;/td&gt;&lt;td&gt;VARCHAR(64)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;INSERT_DTTM&lt;br&gt;&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;UPDATE_DTTM&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;br&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="360" width="360" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot;&gt;RACE_ODDS_TAN&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;KAISAI_CD&lt;/td&gt;&lt;td&gt;CHAR(10)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;RACE_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;ODDS_TIME_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK&lt;/td&gt;&lt;td&gt;UMA_NO&lt;br&gt;&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;NINKI_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;SORT_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;TAN_ODDS&lt;/td&gt;&lt;td&gt;DECIMAL(6,1)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;INSERT_DTTM&lt;br&gt;&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;UPDATE_DTTM&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="580" width="360" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;endArrow=ERzeroToMany;endFill=1;startArrow=ERone;startFill=0;exitX=0.5;exitY=1;exitPerimeter=0;" parent="1" source="7" target="4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot;&gt;RACE&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;KAISAI_CD&lt;/td&gt;&lt;td&gt;CHAR(10)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK&lt;/td&gt;&lt;td&gt;RACE_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;INSERT_DTTM&lt;br&gt;&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;UPDATE_DTTM&lt;br&gt;&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;br&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="200" width="360" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;endArrow=ERzeroToMany;endFill=1;startArrow=ERone;startFill=0;" parent="1" source="7" target="2" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="241" y="350" as="sourcePoint"/>
+                        <mxPoint x="280" y="425" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="260" y="330"/>
+                            <mxPoint x="645" y="330"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;endArrow=ERzeroToMany;endFill=1;startArrow=ERone;startFill=0;" parent="1" source="2" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="255" y="350" as="sourcePoint"/>
+                        <mxPoint x="280" y="425" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="650" y="550"/>
+                            <mxPoint x="1458" y="550"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;endArrow=ERzeroToMany;endFill=1;startArrow=ERone;startFill=0;" parent="1" source="2" target="5" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="655" y="545" as="sourcePoint"/>
+                        <mxPoint x="620" y="620" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="650" y="560"/>
+                            <mxPoint x="650" y="560"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot;&gt;KAISAI&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK&lt;/td&gt;&lt;td&gt;KAISAI_CD&lt;/td&gt;&lt;td&gt;CHAR(10)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;KAISAI_NM&lt;/td&gt;&lt;td&gt;VARCHAR(32)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;KAISAI_DT&lt;/td&gt;&lt;td&gt;DATE&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;INSERT_DTTM&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;UPDATE_DTTM&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;br&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="40" width="360" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;endArrow=ERzeroToMany;endFill=1;startArrow=ERone;startFill=0;" parent="1" source="11" target="7" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="280" y="170" as="sourcePoint"/>
+                        <mxPoint x="305" y="230" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot;&gt;RACE_ODDS_FUKU&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;KAISAI_CD&lt;/td&gt;&lt;td&gt;CHAR(10)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;RACE_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;ODDS_TIME_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK&lt;/td&gt;&lt;td&gt;UMA_NO&lt;br&gt;&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;NINKI_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;SORT_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;FUKU_ODDS_MIN&lt;/td&gt;&lt;td&gt;DECIMAL(6,1)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;FUKU_ODDS_MAX&lt;/td&gt;&lt;td&gt;DECIMAL(6,1)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;INSERT_DTTM&lt;br&gt;&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;UPDATE_DTTM&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="880" y="580" width="360" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;endArrow=ERzeroToMany;endFill=1;startArrow=ERone;startFill=0;" parent="1" source="2" target="13" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="655" y="520" as="sourcePoint"/>
+                        <mxPoint x="656" y="590" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="650" y="550"/>
+                            <mxPoint x="1060" y="550"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot;&gt;RACE_UMA_MARK&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;KAISAI_CD&lt;/td&gt;&lt;td&gt;CHAR(10)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;RACE_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;UMA_NO&lt;br&gt;&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;MARK_CD&lt;/td&gt;&lt;td&gt;CHAR(2)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;INSERT_DTTM&lt;br&gt;&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;UPDATE_DTTM&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;br&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="580" width="360" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;endArrow=ERzeroToOne;endFill=1;startArrow=ERone;startFill=0;" parent="1" source="4" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="260" y="540" as="sourcePoint"/>
+                        <mxPoint x="260" y="580" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="17" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot;&gt;RACE_RSLT&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;KAISAI_CD&lt;/td&gt;&lt;td&gt;CHAR(10)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;RACE_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;UMA_NO&lt;br&gt;&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;ORDER_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;RACE_RSLT_DIV&lt;/td&gt;&lt;td&gt;TINYINT(1) UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;INSERT_DTTM&lt;br&gt;&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;UPDATE_DTTM&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="800" width="360" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;endArrow=ERzeroToMany;endFill=1;startArrow=ERone;startFill=0;entryX=0.521;entryY=-0.005;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="4" target="17" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-140" y="770" as="sourcePoint"/>
+                        <mxPoint x="245" y="830" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="260" y="550"/>
+                            <mxPoint x="40" y="550"/>
+                            <mxPoint x="40" y="760"/>
+                            <mxPoint x="268" y="760"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="19" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot;&gt;RACE_RSLT_DIVIDEND_TAN&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;KAISAI_CD&lt;/td&gt;&lt;td&gt;CHAR(10)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;RACE_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;UMA_NO&lt;br&gt;&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;DIVIDEND_YEN&lt;/td&gt;&lt;td&gt;INT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;INSERT_DTTM&lt;br&gt;&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;UPDATE_DTTM&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="1040" width="360" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot;&gt;RACE_RSLT_DIVIDEND_FUKU&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;KAISAI_CD&lt;/td&gt;&lt;td&gt;CHAR(10)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;RACE_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;UMA_NO&lt;br&gt;&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;DIVIDEND_YEN&lt;/td&gt;&lt;td&gt;INT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;INSERT_DTTM&lt;br&gt;&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;UPDATE_DTTM&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="1040" width="360" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot;&gt;RACE_RSLT_DIVIDEND_UMRN&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;KAISAI_CD&lt;/td&gt;&lt;td&gt;CHAR(10)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;RACE_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;UMA_NO_1&lt;br&gt;&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;UMA_NO_2&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;DIVIDEND_YEN&lt;/td&gt;&lt;td&gt;INT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;INSERT_DTTM&lt;br&gt;&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;UPDATE_DTTM&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="880" y="1040" width="360" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot;&gt;RACE_RSLT_DIVIDEND_UMTN&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;KAISAI_CD&lt;/td&gt;&lt;td&gt;CHAR(10)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;RACE_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;UMA_NO_1&lt;br&gt;&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;UMA_NO_2&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;DIVIDEND_YEN&lt;/td&gt;&lt;td&gt;INT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;INSERT_DTTM&lt;br&gt;&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;UPDATE_DTTM&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1280" y="1040" width="360" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot;&gt;RACE_RSLT_DIVIDEND_TRIO&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;KAISAI_CD&lt;/td&gt;&lt;td&gt;CHAR(10)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;RACE_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;UMA_NO_1&lt;br&gt;&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;UMA_NO_2&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;UMA_NO_3&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;DIVIDEND_YEN&lt;/td&gt;&lt;td&gt;INT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;INSERT_DTTM&lt;br&gt;&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;UPDATE_DTTM&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="1240" width="360" height="183" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot;&gt;RACE_RSLT_DIVIDEND_TRIFECTA&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;KAISAI_CD&lt;/td&gt;&lt;td&gt;CHAR(10)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;RACE_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;UMA_NO_1&lt;br&gt;&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;UMA_NO_2&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;UMA_NO_3&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;DIVIDEND_YEN&lt;/td&gt;&lt;td&gt;INT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;INSERT_DTTM&lt;br&gt;&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;UPDATE_DTTM&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="1240" width="360" height="183" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;endArrow=ERzeroToOne;endFill=1;startArrow=ERone;startFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="4" target="19" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="254" y="303" as="sourcePoint"/>
+                        <mxPoint x="195" y="850" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="260" y="550"/>
+                            <mxPoint x="40" y="550"/>
+                            <mxPoint x="40" y="1000"/>
+                            <mxPoint x="260" y="1000"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;endArrow=ERzeroToOne;endFill=1;startArrow=ERone;startFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" target="20" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="260" y="530" as="sourcePoint"/>
+                        <mxPoint x="270" y="1050" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="260" y="550"/>
+                            <mxPoint x="40" y="550"/>
+                            <mxPoint x="40" y="1000"/>
+                            <mxPoint x="660" y="1000"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;endArrow=ERzeroToOne;endFill=1;startArrow=ERone;startFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="4" target="22" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="270" y="540" as="sourcePoint"/>
+                        <mxPoint x="1070" y="1050" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="260" y="550"/>
+                            <mxPoint x="40" y="550"/>
+                            <mxPoint x="40" y="1000"/>
+                            <mxPoint x="1060" y="1000"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;endArrow=ERzeroToOne;endFill=1;startArrow=ERone;startFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" target="23" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="260" y="530" as="sourcePoint"/>
+                        <mxPoint x="1470" y="1050" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="260" y="550"/>
+                            <mxPoint x="40" y="550"/>
+                            <mxPoint x="40" y="1000"/>
+                            <mxPoint x="1460" y="1000"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;endArrow=ERzeroToOne;endFill=1;startArrow=ERone;startFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" target="24" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="260" y="530" as="sourcePoint"/>
+                        <mxPoint x="270" y="1050" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="260" y="550"/>
+                            <mxPoint x="40" y="550"/>
+                            <mxPoint x="40" y="1210"/>
+                            <mxPoint x="260" y="1210"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;endArrow=ERzeroToOne;endFill=1;startArrow=ERone;startFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" target="25" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="260" y="530" as="sourcePoint"/>
+                        <mxPoint x="270" y="1250" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="260" y="550"/>
+                            <mxPoint x="40" y="550"/>
+                            <mxPoint x="40" y="1210"/>
+                            <mxPoint x="660" y="1210"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="33" value="&lt;div style=&quot;box-sizing: border-box ; width: 100% ; background: #e4e4e4 ; padding: 2px&quot;&gt;RACE_RSLT_DIVIDEND_WIDE&lt;/div&gt;&lt;table style=&quot;width: 100% ; font-size: 1em&quot; cellpadding=&quot;2&quot; cellspacing=&quot;0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;KAISAI_CD&lt;/td&gt;&lt;td&gt;CHAR(10)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;RACE_NO&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;UMA_NO_1&lt;br&gt;&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PK,FK&lt;/td&gt;&lt;td&gt;UMA_NO_2&lt;/td&gt;&lt;td&gt;TINYINT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;DIVIDEND_YEN&lt;/td&gt;&lt;td&gt;INT UNSIGNED&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;INSERT_DTTM&lt;br&gt;&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;br&gt;&lt;/td&gt;&lt;td&gt;UPDATE_DTTM&lt;/td&gt;&lt;td&gt;TIMESTAMP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#ffffff;fontFamily=Verdana;fontSize=12;fontColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="1680" y="1040" width="360" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;endArrow=ERzeroToOne;endFill=1;startArrow=ERone;startFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" target="33" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="260" y="530" as="sourcePoint"/>
+                        <mxPoint x="1470" y="1050" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="260" y="550"/>
+                            <mxPoint x="40" y="550"/>
+                            <mxPoint x="40" y="1000"/>
+                            <mxPoint x="1860" y="1000"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
