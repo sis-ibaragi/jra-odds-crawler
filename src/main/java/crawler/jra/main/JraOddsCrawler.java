@@ -113,6 +113,9 @@ public class JraOddsCrawler {
 		} catch (IOException e) {
 			log.error("プロパティファイルの読み込み時にエラーが発生しました。", e);
 		}
+		// Jdk 11、且つ JawsDB 接続の場合、JRA ページアクセス時に javax.net.ssl.SSLException:
+		// Received fatal alert: internal_error が発生するため、あえて TLS 1.2 を指定する
+		System.setProperty("jdk.tls.client.protocols", "TLSv1.2");
 	}
 
 	/**
