@@ -40,7 +40,7 @@ import crawler.jra.page.RaceTnpkUmaPage;
 import crawler.jra.page.RaceUmrnNinPage;
 import crawler.jra.page.RaceUmrnUmaPage;
 import crawler.jra.page.TopPage;
-import lombok.Data;
+import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -60,67 +60,72 @@ public class JraOddsCrawler {
 	/**
 	 * database.properties のデータ構造を表すクラスです。
 	 */
-	@Data
+	@Value
 	private static class DatabaseProperties {
 		private String database;
 		private String username;
 		private String password;
 
-		private DatabaseProperties(Properties properties) {
-			setDatabase(properties.getProperty("database"));
-			setUsername(properties.getProperty("username"));
-			setPassword(properties.getProperty("password"));
+		private DatabaseProperties() {
+			// database.properties を読み込んで変数へ設定する
+			try {
+				Properties properties = new Properties();
+				properties.load(this.getClass().getClassLoader().getResourceAsStream("database.properties"));
+				this.database = properties.getProperty("database");
+				this.username = properties.getProperty("username");
+				this.password = properties.getProperty("password");
+			} catch (IOException e) {
+				throw new RuntimeException("プロパティファイルの読み込み時にエラーが発生しました。", e);
+			}
 		}
 	}
 
 	/**
 	 * parameter.properties のデータ構造を表すクラスです。
 	 */
-	@Data
+	@Value
 	private static class ParameterProperties {
 		private LocalDate kaisaiDate;
 		private int oddsTimeNo;
 		private boolean preDelete;
 
-		private ParameterProperties(Properties properties) {
-			setKaisaiDate(LocalDate.parse(
-					Optional.ofNullable(System.getProperty("kaisai.date"))
-							.orElse(properties.getProperty("kaisai.date"))));
-			setOddsTimeNo(Integer.valueOf(
-					Optional.ofNullable(System.getProperty("odds.time.no"))
-							.orElse(properties.getProperty("odds.time.no"))));
-			setPreDelete(Boolean.valueOf(
-					Optional.ofNullable(System.getProperty("pre.delete"))
-							.orElse(properties.getProperty("pre.delete"))));
+		private ParameterProperties() {
+			// parameter.properties を読み込んで変数へ設定する
+			try {
+				Properties properties = new Properties();
+				properties.load(this.getClass().getClassLoader().getResourceAsStream("parameter.properties"));
+				this.kaisaiDate = LocalDate.parse(Optional.ofNullable(System.getProperty("kaisai.date"))
+						.orElse(properties.getProperty("kaisai.date")));
+				this.oddsTimeNo = Integer.valueOf(Optional.ofNullable(System.getProperty("odds.time.no"))
+						.orElse(properties.getProperty("odds.time.no")));
+				this.preDelete = Boolean.valueOf(Optional.ofNullable(System.getProperty("pre.delete"))
+						.orElse(properties.getProperty("pre.delete")));
+			} catch (IOException e) {
+				throw new RuntimeException("プロパティファイルの読み込み時にエラーが発生しました。", e);
+			}
 		}
 	}
 
 	/**
-	 * .
+	 * コンストラクタ.
 	 */
 	public JraOddsCrawler() {
-		try {
-			Properties properties = new Properties();
-			properties.load(this.getClass().getClassLoader().getResourceAsStream("database.properties"));
-			this.dbProperties = new DatabaseProperties(properties);
-		} catch (IOException e) {
-			log.error("プロパティファイルの読み込み時にエラーが発生しました。", e);
-		}
-		try {
-			Properties properties = new Properties();
-			properties.load(this.getClass().getClassLoader().getResourceAsStream("parameter.properties"));
-			this.parameterProperties = new ParameterProperties(properties);
-		} catch (IOException e) {
-			log.error("プロパティファイルの読み込み時にエラーが発生しました。", e);
-		}
+		// database.properties を読み込む
+		this.dbProperties = new DatabaseProperties();
+		// parameter.properties を読み込む
+		this.parameterProperties = new ParameterProperties();
+
+		// Jdk 11、且つ JawsDB 接続の場合、JRA ページアクセス時に javax.net.ssl.SSLException:
+		// Received fatal alert: internal_error が発生するため、あえて TLS 1.2 を指定する
+		System.setProperty("jdk.tls.client.protocols", "TLSv1.2");
 	}
 
 	/**
 	 * このクラスのメインメソッドです。
+	 * 
 	 * @param args コマンドライン引数
 	 */
 	public static void main(String[] args) {
-
 		log.info("処理を開始します。");
 		JraOddsCrawler main = new JraOddsCrawler();
 		try {
@@ -137,10 +142,8 @@ public class JraOddsCrawler {
 	 */
 	private void execute() {
 
-		try (Connection conn = DriverManager.getConnection(
-				this.dbProperties.getDatabase(),
-				this.dbProperties.getUsername(),
-				this.dbProperties.getPassword())) {
+		try (Connection conn = DriverManager.getConnection(this.dbProperties.getDatabase(),
+				this.dbProperties.getUsername(), this.dbProperties.getPassword())) {
 			conn.setAutoCommit(false);
 
 			Settings settings = new Settings();
@@ -158,6 +161,7 @@ public class JraOddsCrawler {
 
 	/**
 	 * .
+	 * 
 	 * @param create DSLContext
 	 */
 	private void parseOddsPage(DSLContext create) {
@@ -176,8 +180,8 @@ public class JraOddsCrawler {
 			saveKaisaiData(create, raceSelectPage.parse().getKaisaiDto());
 
 			// レース一覧をループ
-			Optional.ofNullable(raceSelectPage.parse().getRacePageCnameMap())
-					.orElse(Collections.emptyMap()).keySet().forEach(raceNo -> {
+			Optional.ofNullable(raceSelectPage.parse().getRacePageCnameMap()).orElse(Collections.emptyMap()).keySet()
+					.forEach(raceNo -> {
 						// 単複オッズ（馬番順）ページに遷移
 						RaceTnpkUmaPage tnpkUmaPage = raceSelectPage.goRaceTnpkUmaPage(raceNo);
 						// 単複オッズ（人気順）ページに遷移
@@ -198,18 +202,15 @@ public class JraOddsCrawler {
 						log.debug(umrnPage.getRaceUmrnNinList().toString());
 
 						// RACE_ODDS テーブルとその配下のテーブルへデータを登録する
-						saveOddsData(
-								create,
-								tnpkPage.getRaceDto(),
-								tnpkPage.getRaceTnpkNinList(),
-								umrnPage.getRaceDto(),
-								umrnPage.getRaceUmrnNinList());
+						saveOddsData(create, tnpkPage.getRaceDto(), tnpkPage.getRaceTnpkNinList(),
+								umrnPage.getRaceDto(), umrnPage.getRaceUmrnNinList());
 					});
 		});
 	}
 
 	/**
 	 * .
+	 * 
 	 * @param create DSLContext
 	 */
 	private void deleteOddsData(DSLContext create) {
@@ -228,61 +229,42 @@ public class JraOddsCrawler {
 		// 当日の初回実行の場合は当日の KAISAI とその配下のテーブルを削除する
 		if (this.parameterProperties.getOddsTimeNo() == 0) {
 			Result<Record1<String>> result = create.select(KAISAI.KAISAI_CD).from(KAISAI)
-					.where(KAISAI.KAISAI_DT.eq(Date.valueOf(this.parameterProperties.kaisaiDate)))
-					.fetch();
+					.where(KAISAI.KAISAI_DT.eq(Date.valueOf(this.parameterProperties.kaisaiDate))).fetch();
 			result.forEach(r -> {
 				create.deleteFrom(RACE_ODDS_UMRN)
-						.where(RACE_ODDS_UMRN.KAISAI_CD.eq(r.getValue(RACE_ODDS_UMRN.KAISAI_CD)))
-						.execute();
+						.where(RACE_ODDS_UMRN.KAISAI_CD.eq(r.getValue(RACE_ODDS_UMRN.KAISAI_CD))).execute();
 				create.deleteFrom(RACE_ODDS_FUKU)
-						.where(RACE_ODDS_FUKU.KAISAI_CD.eq(r.getValue(RACE_ODDS_FUKU.KAISAI_CD)))
+						.where(RACE_ODDS_FUKU.KAISAI_CD.eq(r.getValue(RACE_ODDS_FUKU.KAISAI_CD))).execute();
+				create.deleteFrom(RACE_ODDS_TAN).where(RACE_ODDS_TAN.KAISAI_CD.eq(r.getValue(RACE_ODDS_TAN.KAISAI_CD)))
 						.execute();
-				create.deleteFrom(RACE_ODDS_TAN)
-						.where(RACE_ODDS_TAN.KAISAI_CD.eq(r.getValue(RACE_ODDS_TAN.KAISAI_CD)))
+				create.deleteFrom(RACE_ODDS).where(RACE_ODDS.KAISAI_CD.eq(r.getValue(RACE_ODDS.KAISAI_CD))).execute();
+				create.deleteFrom(RACE_UMA_LIST).where(RACE_UMA_LIST.KAISAI_CD.eq(r.getValue(KAISAI.KAISAI_CD)))
 						.execute();
-				create.deleteFrom(RACE_ODDS)
-						.where(RACE_ODDS.KAISAI_CD.eq(r.getValue(RACE_ODDS.KAISAI_CD)))
-						.execute();
-				create.deleteFrom(RACE_UMA_LIST)
-						.where(RACE_UMA_LIST.KAISAI_CD.eq(r.getValue(KAISAI.KAISAI_CD)))
-						.execute();
-				create.deleteFrom(RACE)
-						.where(RACE.KAISAI_CD.eq(r.getValue(RACE.KAISAI_CD)))
-						.execute();
-				create.deleteFrom(KAISAI)
-						.where(KAISAI.KAISAI_CD.eq(r.getValue(KAISAI.KAISAI_CD)))
-						.execute();
+				create.deleteFrom(RACE).where(RACE.KAISAI_CD.eq(r.getValue(RACE.KAISAI_CD))).execute();
+				create.deleteFrom(KAISAI).where(KAISAI.KAISAI_CD.eq(r.getValue(KAISAI.KAISAI_CD))).execute();
 			});
 			return;
 		}
 
 		// それ以外の場合は ODDS_TIME_NO を条件に RACE_ODDS とその配下のテーブルを削除する
 		Result<Record1<String>> result = create.select(KAISAI.KAISAI_CD).from(KAISAI)
-				.where(KAISAI.KAISAI_DT.eq(Date.valueOf(this.parameterProperties.kaisaiDate)))
-				.fetch();
+				.where(KAISAI.KAISAI_DT.eq(Date.valueOf(this.parameterProperties.kaisaiDate))).fetch();
 		result.forEach(r -> {
-			create.deleteFrom(RACE_ODDS_UMRN)
-					.where(RACE_ODDS_UMRN.KAISAI_CD.eq(r.getValue(RACE_ODDS_UMRN.KAISAI_CD)))
-					.and(RACE_ODDS_UMRN.ODDS_TIME_NO.eq(UByte.valueOf(this.parameterProperties.oddsTimeNo)))
-					.execute();
-			create.deleteFrom(RACE_ODDS_FUKU)
-					.where(RACE_ODDS_FUKU.KAISAI_CD.eq(r.getValue(RACE_ODDS_FUKU.KAISAI_CD)))
-					.and(RACE_ODDS_FUKU.ODDS_TIME_NO.eq(UByte.valueOf(this.parameterProperties.oddsTimeNo)))
-					.execute();
-			create.deleteFrom(RACE_ODDS_TAN)
-					.where(RACE_ODDS_TAN.KAISAI_CD.eq(r.getValue(RACE_ODDS_TAN.KAISAI_CD)))
-					.and(RACE_ODDS_TAN.ODDS_TIME_NO.eq(UByte.valueOf(this.parameterProperties.oddsTimeNo)))
-					.execute();
-			create.deleteFrom(RACE_ODDS)
-					.where(RACE_ODDS.KAISAI_CD.eq(r.getValue(RACE_ODDS.KAISAI_CD)))
-					.and(RACE_ODDS.ODDS_TIME_NO.eq(UByte.valueOf(this.parameterProperties.oddsTimeNo)))
-					.execute();
+			create.deleteFrom(RACE_ODDS_UMRN).where(RACE_ODDS_UMRN.KAISAI_CD.eq(r.getValue(RACE_ODDS_UMRN.KAISAI_CD)))
+					.and(RACE_ODDS_UMRN.ODDS_TIME_NO.eq(UByte.valueOf(this.parameterProperties.oddsTimeNo))).execute();
+			create.deleteFrom(RACE_ODDS_FUKU).where(RACE_ODDS_FUKU.KAISAI_CD.eq(r.getValue(RACE_ODDS_FUKU.KAISAI_CD)))
+					.and(RACE_ODDS_FUKU.ODDS_TIME_NO.eq(UByte.valueOf(this.parameterProperties.oddsTimeNo))).execute();
+			create.deleteFrom(RACE_ODDS_TAN).where(RACE_ODDS_TAN.KAISAI_CD.eq(r.getValue(RACE_ODDS_TAN.KAISAI_CD)))
+					.and(RACE_ODDS_TAN.ODDS_TIME_NO.eq(UByte.valueOf(this.parameterProperties.oddsTimeNo))).execute();
+			create.deleteFrom(RACE_ODDS).where(RACE_ODDS.KAISAI_CD.eq(r.getValue(RACE_ODDS.KAISAI_CD)))
+					.and(RACE_ODDS.ODDS_TIME_NO.eq(UByte.valueOf(this.parameterProperties.oddsTimeNo))).execute();
 		});
 	}
 
 	/**
 	 * KAISAI テーブルへデータを登録します。
-	 * @param create DSLContext
+	 * 
+	 * @param create    DSLContext
 	 * @param kaisaiDto .
 	 */
 	private void saveKaisaiData(DSLContext create, KaisaiDto kaisaiDto) {
@@ -295,24 +277,20 @@ public class JraOddsCrawler {
 		}
 
 		// KAISAI テーブルへデータを登録する
-		create.insertInto(KAISAI)
-				.set(KAISAI.KAISAI_CD, kaisaiDto.getKaisaiCd())
-				.set(KAISAI.KAISAI_NM, kaisaiDto.getKaisaiNm())
-				.set(KAISAI.KAISAI_DT,
+		create.insertInto(KAISAI).set(KAISAI.KAISAI_CD, kaisaiDto.getKaisaiCd())
+				.set(KAISAI.KAISAI_NM, kaisaiDto.getKaisaiNm()).set(KAISAI.KAISAI_DT,
 						Optional.ofNullable(kaisaiDto.getKaisaiDt()).map(m -> Date.valueOf(m)).orElse(null))
 				.execute();
 	}
 
 	/**
 	 * RACE、RACE_UMA_LIST テーブルへデータを登録します。
-	 * @param create DSLContext
-	 * @param raceTnpkDto .
+	 * 
+	 * @param create          DSLContext
+	 * @param raceTnpkDto     .
 	 * @param raceTnpkNinList .
 	 */
-	private void saveRaceData(
-			DSLContext create,
-			RaceDto raceTnpkDto,
-			List<RaceTnpkNinDto> raceTnpkNinList) {
+	private void saveRaceData(DSLContext create, RaceDto raceTnpkDto, List<RaceTnpkNinDto> raceTnpkNinList) {
 
 		// 当日の初回実行の場合のみレース情報を登録する
 		if (this.parameterProperties.getOddsTimeNo() != 0) {
@@ -320,10 +298,8 @@ public class JraOddsCrawler {
 		}
 
 		// RACE へデータを登録する
-		create.insertInto(RACE)
-				.set(RACE.KAISAI_CD, raceTnpkDto.getKaisaiCd())
-				.set(RACE.RACE_NO, UByte.valueOf(raceTnpkDto.getRaceNo()))
-				.execute();
+		create.insertInto(RACE).set(RACE.KAISAI_CD, raceTnpkDto.getKaisaiCd())
+				.set(RACE.RACE_NO, UByte.valueOf(raceTnpkDto.getRaceNo())).execute();
 
 		// RACE_UMA_LIST へデータを登録する
 		List<RaceUmaListRecord> records = new ArrayList<>();
@@ -337,28 +313,24 @@ public class JraOddsCrawler {
 			record.setJockeyNm(dto.getJockeyNm());
 			records.add(record);
 		});
-		int[] results = create.batchInsert(records).execute();
+		create.batchInsert(records).execute();
 
 	}
 
 	/**
 	 * RACE_ODDS テーブルとその配下のテーブルへデータを登録します。
-	 * @param create DSLContext
-	 * @param raceTnpkDto .
+	 * 
+	 * @param create          DSLContext
+	 * @param raceTnpkDto     .
 	 * @param raceTnpkNinList .
-	 * @param raceUmrnDto .
+	 * @param raceUmrnDto     .
 	 * @param raceUmrnNinList .
 	 */
-	private void saveOddsData(
-			DSLContext create,
-			RaceDto raceTnpkDto,
-			List<RaceTnpkNinDto> raceTnpkNinList,
-			RaceDto raceUmrnDto,
-			List<RaceUmrnNinDto> raceUmrnNinList) {
+	private void saveOddsData(DSLContext create, RaceDto raceTnpkDto, List<RaceTnpkNinDto> raceTnpkNinList,
+			RaceDto raceUmrnDto, List<RaceUmrnNinDto> raceUmrnNinList) {
 
 		// RACE_ODDS テーブルへデータを登録する
-		create.insertInto(RACE_ODDS)
-				.set(RACE_ODDS.KAISAI_CD, raceTnpkDto.getKaisaiCd())
+		create.insertInto(RACE_ODDS).set(RACE_ODDS.KAISAI_CD, raceTnpkDto.getKaisaiCd())
 				.set(RACE_ODDS.RACE_NO, UByte.valueOf(raceTnpkDto.getRaceNo()))
 				.set(RACE_ODDS.ODDS_TIME_NO, UByte.valueOf(this.parameterProperties.getOddsTimeNo()))
 				.set(RACE_ODDS.TNPK_ODDS_TIME,
@@ -382,7 +354,7 @@ public class JraOddsCrawler {
 				record.setTanOdds(dto.getTanOdds());
 				records.add(record);
 			});
-			int[] results = create.batchInsert(records).execute();
+			create.batchInsert(records).execute();
 		}
 
 		// RACE_ODDS_FUKU テーブルへデータを登録する
@@ -391,10 +363,9 @@ public class JraOddsCrawler {
 			AtomicInteger sortNo = new AtomicInteger(0);
 			raceTnpkNinList.stream()
 					.sorted(Comparator.comparing(RaceTnpkNinDto::getFukuOddsMax4Sort)
-							.thenComparing(RaceTnpkNinDto::getNinkiNo)
-							.thenComparing(RaceTnpkNinDto::getUmaNo))
+							.thenComparing(RaceTnpkNinDto::getNinkiNo).thenComparing(RaceTnpkNinDto::getUmaNo))
 					.forEach(dto -> {
-						RaceOddsFukuRecord record =new RaceOddsFukuRecord();
+						RaceOddsFukuRecord record = new RaceOddsFukuRecord();
 						record.setKaisaiCd(raceTnpkDto.getKaisaiCd());
 						record.setRaceNo(UByte.valueOf(raceTnpkDto.getRaceNo()));
 						record.setOddsTimeNo(UByte.valueOf(this.parameterProperties.getOddsTimeNo()));
@@ -405,7 +376,7 @@ public class JraOddsCrawler {
 						record.setFukuOddsMax(dto.getFukuOddsMax());
 						records.add(record);
 					});
-			int[] results = create.batchInsert(records).execute();
+			create.batchInsert(records).execute();
 		}
 
 		// RACE_ODDS_UMRN テーブルへデータを登録する
@@ -424,7 +395,7 @@ public class JraOddsCrawler {
 				record.setUmrnOdds(dto.getOdds());
 				records.add(record);
 			});
-			int[] results = create.batchInsert(records).execute();
+			create.batchInsert(records).execute();
 		}
 	}
 }
